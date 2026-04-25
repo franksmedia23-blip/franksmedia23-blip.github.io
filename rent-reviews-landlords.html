@@ -99,7 +99,7 @@ select { font-family:inherit; }
 .mobile-nav { display:flex; flex-direction:column; font-size:0.875rem; }
 .mobile-nav a, .mobile-nav button { display:block; padding:0.75rem 0.5rem; color:var(--ink); text-align:left; transition:background 150ms ease; width:100%; border-radius:0; }
 .mobile-nav a:hover, .mobile-nav button:hover { background:#F9FAFB; }
-.btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white); font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
+.mobile-nav .btn-callback-mobile, .btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white) !important; font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
 .btn-callback-mobile:hover { background:var(--black); }
 
 /* Sections */
@@ -340,7 +340,6 @@ textarea.f-in { resize:vertical; }
   .contact-form-wrap { padding:2.5rem; }
 }
 
-    @media (min-width:1024px) { #two-col-content { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
