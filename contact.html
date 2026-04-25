@@ -29,7 +29,8 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"T1 Asset Management","url":"https://t1assetmanagement.co.uk/","areaServed":[{"@type":"AdministrativeArea","name":"Leeds"},{"@type":"AdministrativeArea","name":"West Yorkshire"},{"@type":"AdministrativeArea","name":"Yorkshire"},{"@type":"Country","name":"United Kingdom"}],"address":{"@type":"PostalAddress","streetAddress":"Unit 19 Holly Park Mills, Calverley","addressLocality":"Leeds","postalCode":"LS28 5QS","addressCountry":"GB"},"telephone":"+44 7912 222 905","email":"rob@t1assetmanagement.co.uk","description":"Leeds-based commercial property specialists for rent reviews, lease renewals and lease events across Yorkshire and the UK."}
   </script>
-  <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --ink:#0B1220; --line:#E5E7EB; --muted:#6B7280; --paper:#FAFAFA; --white:#ffffff; --black:#000000; --svc-gap:24px; }
 html { scroll-behavior: smooth; }
 body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
@@ -98,7 +99,7 @@ select { font-family:inherit; }
 .mobile-nav { display:flex; flex-direction:column; font-size:0.875rem; }
 .mobile-nav a, .mobile-nav button { display:block; padding:0.75rem 0.5rem; color:var(--ink); text-align:left; transition:background 150ms ease; width:100%; border-radius:0; }
 .mobile-nav a:hover, .mobile-nav button:hover { background:#F9FAFB; }
-.btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white); font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
+.mobile-nav .btn-callback-mobile, .btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white) !important; font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
 .btn-callback-mobile:hover { background:var(--black); }
 
 /* Sections */
@@ -338,6 +339,7 @@ textarea.f-in { resize:vertical; }
   .card-pad { padding:2.5rem; }
   .contact-form-wrap { padding:2.5rem; }
 }
+
 </style>
 </head>
 <body>
