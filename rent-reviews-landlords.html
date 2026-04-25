@@ -3,19 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-  <!-- iOS: white status bar/safe-area like homepage -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="theme-color" content="#FFFFFF">
-
-  <!-- ✅ SEO -->
   <title>Rent Reviews for Commercial Landlords in Leeds | T1 Asset Management</title>
   <meta name="description" content="Commercial rent reviews for landlords in Leeds. Evidence-led negotiation to maximise market rent and improve investment performance — T1 Asset Management (Yorkshire & UK-wide)." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://t1assetmanagement.co.uk/rent-reviews-landlords.html" />
-
-  <!-- ✅ Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="T1 Asset Management" />
   <meta property="og:title" content="Rent Reviews for Commercial Landlords in Leeds | T1 Asset Management" />
@@ -23,821 +16,605 @@
   <meta property="og:url" content="https://t1assetmanagement.co.uk/rent-reviews-landlords.html" />
   <meta property="og:image" content="https://image2url.com/r2/default/images/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- ✅ Favicons (ROOT SITE) -->
-  <link rel="icon" href="/favicon-files/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#FFFFFF">
+    <link rel="icon" href="/favicon-files/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-files/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-files/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-files/apple-touch-icon.png">
   <link rel="manifest" href="/favicon-files/site.webmanifest">
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Feather Icons -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Commercial Rent Reviews for Landlords in Leeds","serviceType":"Commercial Rent Reviews for Landlords in Leeds","provider":{"@type":"ProfessionalService","name":"T1 Asset Management","url":"https://t1assetmanagement.co.uk/","telephone":"+44 7912 222 905","email":"rob@t1assetmanagement.co.uk","address":{"@type":"PostalAddress","streetAddress":"Unit 19 Holly Park Mills, Calverley","addressLocality":"Leeds","postalCode":"LS28 5QS","addressCountry":"GB"}},"areaServed":{"@type":"City","name":"Leeds"},"url":"https://t1assetmanagement.co.uk/rent-reviews-landlords.html"}
+  </script>
   <style>
-    html { scroll-behavior: smooth; }
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
-    }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ink:#0B1220; --line:#E5E7EB; --muted:#6B7280; --paper:#FAFAFA; --white:#ffffff; --black:#000000; --svc-gap:24px; }
+html { scroll-behavior: smooth; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body::before { content:""; position:fixed; top:0; left:0; right:0; height:env(safe-area-inset-top); background:var(--white); z-index:1000; pointer-events:none; }
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:pointer; background:none; border:none; }
+ul { list-style:none; }
+select { font-family:inherit; }
 
-    /* ✅ iOS notch safe-area: white strip at top (same as homepage) */
-    body::before{
-      content:"";
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: env(safe-area-inset-top);
-      background: #fff;
-      z-index: 1000;
-      pointer-events: none;
-    }
+/* Container */
+.container { max-width:80rem; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem; }
 
-    /* Squared system */
-    .sq { border-radius: 0 !important; }
+/* Utilities */
+.hidden { display:none !important; }
+.no-scroll { overflow:hidden; }
+.overflow-hidden { overflow:hidden; }
+.reveal { opacity:0; transform:translateY(10px); transition:opacity 700ms ease, transform 700ms ease; will-change:opacity,transform; }
+.reveal.is-visible { opacity:1; transform:translateY(0); }
+.hairline { height:1px; background:rgba(2,6,23,.08); }
+.is-disabled { opacity:.35; cursor:not-allowed; }
 
-    /* Fade-in on scroll */
-    .reveal{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity 700ms ease, transform 700ms ease;
-      will-change:opacity, transform;
-    }
-    .reveal.is-visible{ opacity:1; transform:translateY(0); }
+/* Icons */
+.icon { width:1.25rem; height:1.25rem; flex-shrink:0; }
+.icon-sm { width:1rem; height:1rem; }
 
-    /* Mobile menu overlay */
-    .menu-backdrop{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.35);
-      opacity: 0; pointer-events: none;
-      transition: opacity 180ms ease;
-      z-index: 60;
-    }
-    .menu-backdrop.open{ opacity: 1; pointer-events: auto; }
+/* Buttons */
+.btn { display:inline-flex; align-items:center; justify-content:center; border-radius:0; font-size:0.875rem; font-weight:600; padding:0.75rem 1.25rem; transition:background-color 150ms ease, color 150ms ease, border-color 150ms ease; cursor:pointer; text-decoration:none; gap:0.5rem; white-space:nowrap; }
+.btn-primary { background:var(--ink); color:var(--white); border:1px solid var(--ink); }
+.btn-primary:hover { background:var(--black); border-color:var(--black); }
+.btn-outline { background:transparent; color:var(--ink); border:1px solid var(--line); }
+.btn-outline:hover { background:#F9FAFB; }
+.btn-outline-white { background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.30); }
+.btn-outline-white:hover { background:rgba(255,255,255,0.10); }
+.btn-white { background:var(--white); color:var(--ink); border:1px solid var(--white); }
+.btn-white:hover { background:#F3F4F6; }
 
-    .menu-drawer{
-      position: fixed;
-      top: 72px;
-      left: 0; right: 0;
-      background: #fff;
-      border-top: 1px solid #E5E7EB;
-      transform: translateY(-10px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-      z-index: 70;
-    }
-    .menu-drawer.open{
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .no-scroll { overflow: hidden; }
+/* Header */
+.site-header { position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(0,0,0,0.05); }
+.header-inner { height:72px; display:flex; align-items:center; justify-content:space-between; }
+.nav-logo img { height:2.5rem; width:auto; }
+.nav-desktop { display:none; align-items:center; gap:2.5rem; font-size:13px; letter-spacing:0.025em; }
+.nav-desktop a { color:rgba(11,18,32,0.80); transition:color 150ms ease; }
+.nav-desktop a:hover { color:var(--ink); }
+.nav-dd { position:relative; }
+.nav-dd-btn { display:inline-flex; align-items:center; gap:0.5rem; font-size:13px; color:rgba(11,18,32,0.80); transition:color 150ms ease; cursor:pointer; font-family:inherit; letter-spacing:0.025em; }
+.nav-dd-btn:hover { color:var(--ink); }
+.nav-dd-panel { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:260px; background:var(--white); border:1px solid rgba(2,6,23,.10); box-shadow:0 10px 24px rgba(2,6,23,0.08); z-index:80; opacity:0; pointer-events:none; transition:opacity 140ms ease, transform 140ms ease; border-radius:0; }
+.nav-dd-panel.open { opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.nav-dd-panel a { display:block; padding:0.75rem 1rem; font-size:0.875rem; color:var(--ink); transition:background 150ms ease; }
+.nav-dd-panel a:hover { background:#F9FAFB; }
+.nav-dd::after { content:""; position:absolute; left:-12px; right:-12px; top:100%; height:18px; }
+.header-actions { display:flex; align-items:center; gap:0.75rem; }
+.btn-enquiry { display:none; padding:0.625rem 1.25rem; border:1px solid var(--line); font-size:13px; font-weight:500; background:var(--white); color:var(--ink); border-radius:0; transition:background 150ms ease; cursor:pointer; text-decoration:none; }
+.btn-enquiry:hover { background:#F9FAFB; }
+.btn-callback-nav { display:none; padding:0.625rem 1.25rem; background:var(--ink); color:var(--white); font-size:13px; font-weight:600; border:none; border-radius:0; cursor:pointer; transition:background 150ms ease; }
+.btn-callback-nav:hover { background:var(--black); }
+.btn-menu { display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border:1px solid var(--line); border-radius:0; background:var(--white); cursor:pointer; transition:background 150ms ease; }
+.btn-menu:hover { background:#F9FAFB; }
 
-    /* Inputs */
-    .f-in{
-      transition: box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
-      border: 1px solid rgba(2,6,23,.12);
-      background: #fff;
-    }
-    .f-in:focus{
-      border-color: rgba(2,6,23,.55);
-      box-shadow: 0 0 0 4px rgba(2,6,23,.08);
-      outline: none;
-    }
+/* Mobile menu */
+.menu-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); opacity:0; pointer-events:none; transition:opacity 180ms ease; z-index:60; }
+.menu-backdrop.open { opacity:1; pointer-events:auto; }
+.menu-drawer { position:fixed; top:72px; left:0; right:0; background:var(--white); border-top:1px solid var(--line); transform:translateY(-10px); opacity:0; pointer-events:none; transition:opacity 180ms ease, transform 180ms ease; z-index:70; }
+.menu-drawer.open { transform:translateY(0); opacity:1; pointer-events:auto; }
+.mobile-nav { display:flex; flex-direction:column; font-size:0.875rem; }
+.mobile-nav a, .mobile-nav button { display:block; padding:0.75rem 0.5rem; color:var(--ink); text-align:left; transition:background 150ms ease; width:100%; border-radius:0; }
+.mobile-nav a:hover, .mobile-nav button:hover { background:#F9FAFB; }
+.btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white); font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
+.btn-callback-mobile:hover { background:var(--black); }
 
-    /* Hero overlay */
-    .hero-overlay{ position: relative; }
-    .hero-overlay::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(900px 520px at 16% 50%, rgba(0,0,0,.76) 0%, rgba(0,0,0,.28) 62%, rgba(0,0,0,0) 100%),
-        linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.22) 58%, rgba(0,0,0,.08) 100%);
-    }
+/* Sections */
+.section { padding-top:4rem; padding-bottom:4rem; }
+.section-paper { background:var(--paper); }
 
-    /* Typography tuning */
-    .hero-h1{ letter-spacing:-0.035em; }
-    @media (min-width: 1024px){ .hero-h1{ letter-spacing:-0.045em; } }
+/* Form inputs */
+.f-in { width:100%; padding:0.75rem 1rem; font-size:0.875rem; font-family:inherit; border:1px solid rgba(2,6,23,.12); border-radius:0; background:var(--white); color:var(--ink); transition:box-shadow 200ms ease, border-color 200ms ease; outline:none; }
+.f-in::placeholder { color:var(--muted); }
+.f-in:focus { border-color:rgba(2,6,23,.55); box-shadow:0 0 0 4px rgba(2,6,23,.08); }
+textarea.f-in { resize:vertical; }
+.form-field { display:flex; flex-direction:column; }
+.form-field label { font-size:0.875rem; font-weight:500; color:var(--ink); }
+.form-field label span { color:var(--muted); }
+.form-field .f-in { margin-top:0.5rem; }
+.form-grid-2 { display:grid; gap:1rem; }
+.form-actions { display:flex; flex-direction:column; gap:0.75rem; }
+.form-actions .btn { flex:1; }
+.form-space > * + * { margin-top:1rem; }
+.form-notice { font-size:0.75rem; color:var(--muted); line-height:1.5; }
+#formStatus, #callbackStatus { font-size:0.75rem; color:var(--muted); line-height:1.5; }
 
-    /* Desktop dropdown */
-    .nav-dd{ position: relative; }
-    .nav-dd-panel{
-      position: absolute;
-      top: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: 260px;
-      background: #fff;
-      border: 1px solid rgba(2,6,23,.10);
-      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
-      z-index: 80;
-      opacity: 0;
-      transform: translateX(-50%) translateY(-6px);
-      pointer-events: none;
-      transition: opacity 140ms ease, transform 140ms ease;
-    }
-    .nav-dd-panel.open{
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
-    }
-    .nav-dd::after{
-      content:"";
-      position:absolute;
-      left:-12px; right:-12px;
-      top:100%;
-      height:18px;
-    }
-  </style>
+/* Contact info bar */
+.contact-info-bar { border:1px solid var(--line); background:var(--paper); padding:1.25rem 1.5rem; }
+.contact-info-grid { display:grid; gap:1.25rem; }
+.contact-info-item { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.875rem; }
+.icon-box { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:2.25rem; height:2.25rem; border:1px solid var(--line); background:var(--white); margin-top:2px; }
+.icon-box-dark { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; background:var(--ink); color:var(--white); border-radius:0; }
+.contact-info-item p { color:var(--muted); line-height:1.5; }
+.info-label { font-size:11px; text-transform:uppercase; letter-spacing:0.22em; color:var(--muted); }
+.company-name { font-weight:600; color:var(--ink); }
+.contact-info-item a { display:inline-block; margin-top:0.25rem; font-weight:600; color:var(--ink); }
+.contact-info-item a:hover { text-decoration:underline; text-underline-offset:4px; }
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: "#0B1220",
-            muted: "#6B7280",
-            paper: "#FAFAFA",
-            line: "#E5E7EB"
-          },
-          boxShadow: {
-            soft: "0 10px 24px rgba(2, 6, 23, 0.08)",
-            crisp: "0 10px 20px rgba(2, 6, 23, 0.10)"
-          }
-        }
-      }
-    }
-  </script>
+/* Hero */
+.hero-section { position:relative; }
+.hero-overlay { position:relative; }
+.hero-overlay::before { content:""; position:absolute; inset:0; pointer-events:none; background: radial-gradient(900px 520px at 16% 50%, rgba(0,0,0,.76) 0%, rgba(0,0,0,.28) 62%, rgba(0,0,0,0) 100%), linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.22) 58%, rgba(0,0,0,.08) 100%); }
+.hero-img { width:100%; height:82vh; min-height:700px; object-fit:cover; }
+.hero-content { position:absolute; inset:0; }
+.hero-content-inner { height:100%; display:flex; align-items:flex-end; padding-top:6rem; padding-bottom:12rem; }
+.hero-text-max { max-width:48rem; }
+.hero-eyebrow { font-size:10px; text-transform:uppercase; letter-spacing:0.28em; color:rgba(255,255,255,0.70); }
+.hero-h1 { margin-top:1.25rem; color:var(--white); font-weight:600; line-height:1.02; letter-spacing:-0.035em; font-size:clamp(34px,6vw,72px); }
+.hero-sub { margin-top:1.5rem; color:rgba(255,255,255,0.80); line-height:1.625; font-size:clamp(14px,2vw,18px); max-width:42rem; }
+.hero-actions { margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem; }
+.hero-rule { margin-top:2.5rem; height:1px; width:100%; background:rgba(255,255,255,0.15); }
+.hero-tags { margin-top:1.5rem; display:flex; flex-wrap:wrap; align-items:center; gap:0.75rem 0.75rem; color:rgba(255,255,255,0.65); font-size:12px; letter-spacing:0.05em; }
+.hero-tags .dot { opacity:0.4; }
 
-  <!-- ✅ SEO schema (Leeds / service page) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"T1 Asset Management",
-    "url":"https://t1assetmanagement.co.uk/",
-    "telephone":"+44 7912 222 905",
-    "email":"rob@t1assetmanagement.co.uk",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Unit 19 Holly Park Mills, Calverley",
-      "addressLocality":"Leeds",
-      "postalCode":"LS28 5QS",
-      "addressCountry":"GB"
-    },
-    "areaServed":[
-      {"@type":"AdministrativeArea","name":"Leeds"},
-      {"@type":"AdministrativeArea","name":"West Yorkshire"},
-      {"@type":"AdministrativeArea","name":"Yorkshire"},
-      {"@type":"Country","name":"United Kingdom"}
-    ]
-  }
-  </script>
+/* Homepage overlap tiles */
+.hero-tiles-wrap { position:relative; z-index:10; margin-top:-6rem; }
+.tiles-grid { display:grid; gap:1rem; }
+.tile { background:var(--white); border:1px solid var(--line); box-shadow:0 10px 24px rgba(2,6,23,0.08); padding:1.5rem; border-radius:0; }
+.tile-label { font-size:11px; text-transform:uppercase; letter-spacing:0.25em; color:var(--muted); }
+.tile h3 { margin-top:0.5rem; font-size:1.125rem; font-weight:600; }
+.tile p { margin-top:0.5rem; font-size:0.875rem; color:var(--muted); }
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"Commercial Rent Reviews for Landlords in Leeds",
-    "serviceType":"Commercial rent review representation for landlords",
-    "provider":{
-      "@type":"ProfessionalService",
-      "name":"T1 Asset Management",
-      "url":"https://t1assetmanagement.co.uk/",
-      "telephone":"+44 7912 222 905",
-      "email":"rob@t1assetmanagement.co.uk",
-      "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"Unit 19 Holly Park Mills, Calverley",
-        "addressLocality":"Leeds",
-        "postalCode":"LS28 5QS",
-        "addressCountry":"GB"
-      }
-    },
-    "areaServed":{"@type":"City","name":"Leeds"},
-    "url":"https://t1assetmanagement.co.uk/rent-reviews-landlords.html"
-  }
-  </script>
+/* About / 2-col grid */
+.two-col-grid { display:grid; gap:1.5rem; }
+.card-bordered { border:1px solid var(--line); background:var(--white); border-radius:0; }
+.card-pad { padding:2rem; }
+.card-overflow { overflow:hidden; }
+.aspect-square { aspect-ratio:1/1; }
+.aspect-square img { width:100%; height:100%; object-fit:cover; }
+.section-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+.section-h2 { margin-top:0.75rem; font-size:clamp(1.75rem,3vw,2.25rem); font-weight:600; letter-spacing:-0.02em; line-height:1.15; }
+.section-body { margin-top:1rem; color:var(--muted); line-height:1.625; }
+.section-body + .section-body { margin-top:1rem; }
+.section-actions { margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem; }
+
+/* Approach cards */
+.approach-cards { display:grid; gap:1rem; }
+.approach-card { border:1px solid rgba(2,6,23,.10); background:var(--white); padding:1.5rem; border-radius:0; transition:transform 520ms ease, box-shadow 520ms ease, border-color 520ms ease; will-change:transform; }
+.approach-card-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.approach-card h3 { font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; }
+.approach-card p { margin-top:0.5rem; font-size:0.875rem; color:var(--muted); }
+@media (hover:hover) and (pointer:fine) { .approach-card:hover { transform:scale(1.02); border-color:rgba(2,6,23,.55); box-shadow:0 12px 24px rgba(2,6,23,0.12); } }
+.approach-card.is-active { transform:scale(1.02); border-color:rgba(2,6,23,.55); box-shadow:0 12px 24px rgba(2,6,23,0.12); }
+
+/* Services slider */
+.svc-rail { overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
+.svc-rail::-webkit-scrollbar { display:none; }
+.svc-track { display:flex; gap:var(--svc-gap); width:100%; padding-bottom:8px; }
+.svc-item { scroll-snap-align:start; scroll-snap-stop:always; flex:0 0 100%; }
+.svc-card { border:1px solid rgba(2,6,23,.10); background:var(--white); overflow:hidden; height:100%; display:flex; flex-direction:column; border-radius:0; transition:background-color 200ms ease, border-color 200ms ease, transform 200ms ease; }
+@media (hover:hover) and (pointer:fine) { .svc-card:hover { background:rgba(2,6,23,.02); border-color:rgba(2,6,23,.18); transform:translateY(-2px); } }
+.svc-photo { height:190px; flex-shrink:0; }
+.svc-photo img { width:100%; height:100%; object-fit:cover; }
+.svc-body { padding:1.75rem; }
+.svc-body-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.svc-body h3 { font-size:1.25rem; font-weight:600; letter-spacing:-0.01em; }
+.svc-body p { margin-top:0.75rem; font-size:0.875rem; line-height:1.625; color:var(--muted); }
+.svc-link { margin-top:1.5rem; display:inline-flex; align-items:center; gap:0.5rem; font-size:0.875rem; font-weight:600; text-decoration:underline; text-underline-offset:4px; color:var(--ink); }
+.svc-controls { margin-top:2rem; display:flex; align-items:center; gap:0.75rem; }
+.svc-btn { width:2.5rem; height:2.5rem; border:1px solid var(--line); background:var(--white); border-radius:0; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:background 150ms ease; }
+.svc-btn:hover { background:#F9FAFB; }
+
+/* Services page rows */
+.svc-row { border:1px solid rgba(2,6,23,.10); background:var(--white); overflow:hidden; border-radius:0; transition:background-color 200ms ease, border-color 200ms ease; }
+@media (hover:hover) and (pointer:fine) { .svc-row:hover { background:rgba(2,6,23,.02); border-color:rgba(2,6,23,.18); } }
+.svc-row-grid { display:grid; }
+.svc-row-img { height:220px; }
+.svc-row-img img { width:100%; height:100%; object-fit:cover; }
+.svc-row-body { padding:1.75rem 2rem; }
+.svc-row-body h3 { font-size:1.5rem; font-weight:600; letter-spacing:-0.01em; }
+.svc-row-body p { margin-top:0.75rem; font-size:0.875rem; line-height:1.625; color:var(--muted); }
+.svc-row-body p + p { margin-top:0.75rem; }
+.svc-row-link { margin-top:1.75rem; display:inline-flex; align-items:center; gap:0.5rem; font-size:0.875rem; font-weight:600; text-decoration:underline; text-underline-offset:4px; color:var(--ink); }
+
+/* Contact info tiles (contact page) */
+.contact-tiles { display:grid; gap:1rem; margin-top:2.5rem; }
+.contact-tile { border:1px solid var(--line); background:var(--white); padding:1.75rem; }
+.contact-tile-inner { display:flex; align-items:flex-start; gap:1rem; }
+.icon-circle { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:2.75rem; height:2.75rem; border-radius:50%; background:var(--ink); color:var(--white); }
+.contact-tile-body { font-size:0.875rem; }
+.contact-tile-body .name { font-weight:600; color:var(--ink); }
+.contact-tile-body p { margin-top:0.75rem; color:var(--muted); line-height:1.5; }
+.contact-tile-body a { display:inline-block; font-size:1.125rem; font-weight:600; color:var(--ink); margin-top:0.75rem; }
+.contact-tile-body a:hover { text-decoration:underline; text-underline-offset:4px; }
+.contact-form-wrap { border:1px solid var(--line); background:var(--white); padding:2rem; box-shadow:0 10px 24px rgba(2,6,23,0.08); }
+
+/* Page header (legal/content pages) */
+.page-header { padding-top:4rem; padding-bottom:4rem; }
+.page-header-inner { max-width:48rem; }
+.page-eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+.page-h1 { margin-top:1rem; font-size:clamp(2rem,5vw,3rem); font-weight:600; letter-spacing:-0.02em; line-height:1.1; }
+.effective-date { margin-top:1.5rem; border:1px solid var(--line); background:var(--paper); padding:1rem 1.25rem; font-size:0.875rem; color:var(--muted); border-radius:0; }
+.effective-date strong { font-weight:500; color:var(--ink); }
+.content-grid { display:grid; gap:2.5rem; }
+.prose-card { border:1px solid var(--line); background:var(--white); padding:2rem; border-radius:0; }
+.prose-card p { color:var(--muted); line-height:1.625; }
+.prose-card h2 { font-size:1.5rem; font-weight:600; letter-spacing:-0.02em; }
+.prose-card h2 + p, .prose-card h2 + ul { margin-top:0.75rem; }
+.prose-card p + p { margin-top:0.75rem; }
+.prose-card ul { list-style:disc; padding-left:1.5rem; display:flex; flex-direction:column; gap:0.5rem; color:var(--muted); }
+.prose-card a { font-weight:600; color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+.sidebar-card { border:1px solid var(--line); background:var(--paper); padding:1.75rem; border-radius:0; }
+.sidebar-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+.sidebar-contacts { margin-top:1.25rem; display:flex; flex-direction:column; gap:1rem; }
+.sidebar-contact-item { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.875rem; }
+.sidebar-contact-item p { color:var(--muted); line-height:1.5; }
+.sidebar-contact-item .name { font-weight:600; color:var(--ink); }
+.sidebar-contact-item a { display:inline-block; margin-top:0.25rem; font-weight:600; color:var(--ink); word-break:break-all; }
+.sidebar-contact-item a:hover { text-decoration:underline; text-underline-offset:4px; }
+.sidebar-actions { margin-top:1.75rem; display:flex; flex-direction:column; gap:0.75rem; }
+.company-reg { margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--line); font-size:0.75rem; color:var(--muted); line-height:1.6; }
+
+/* 404 page */
+.page-404-grid { display:grid; gap:2.5rem; }
+.page-404-section { background:var(--paper); padding-top:4rem; padding-bottom:4rem; }
+.quick-help-card { border:1px solid var(--line); background:var(--white); padding:2rem; box-shadow:0 10px 24px rgba(2,6,23,0.08); }
+.tag-links { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.875rem; }
+.tag-link { display:inline-flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; border:1px solid var(--line); background:var(--white); color:var(--ink); transition:background 150ms ease; border-radius:0; }
+.tag-link:hover { background:#F9FAFB; }
+.search-row { display:flex; gap:0.5rem; margin-top:0.5rem; }
+.search-note { font-size:0.75rem; color:var(--muted); margin-top:0.5rem; }
+
+/* Footer */
+.site-footer { background:var(--black); color:var(--white); }
+.footer-inner { padding-top:3.5rem; padding-bottom:3.5rem; }
+.footer-grid { display:grid; gap:2.5rem; }
+.footer-brand img { height:2.5rem; width:auto; }
+.footer-brand p { margin-top:1rem; font-size:0.875rem; color:rgba(255,255,255,0.70); line-height:1.625; max-width:24rem; }
+.footer-rics-wrap { margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.10); }
+.footer-rics-wrap img { height:2.5rem; width:auto; opacity:0.90; }
+.footer-col-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:rgba(255,255,255,0.60); }
+.footer-col ul { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem; }
+.footer-col ul a, .footer-col ul button { color:rgba(255,255,255,0.80); text-align:left; font-family:inherit; font-size:0.875rem; cursor:pointer; transition:color 150ms ease; padding:0; }
+.footer-col ul a:hover, .footer-col ul button:hover { color:var(--white); }
+.footer-office { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem; color:rgba(255,255,255,0.70); }
+.footer-bottom { margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.15); display:flex; flex-direction:column; gap:1rem; }
+.footer-bottom p { font-size:0.875rem; color:rgba(255,255,255,0.60); }
+.footer-bottom-right { display:flex; gap:1.5rem; font-size:0.875rem; align-items:center; flex-wrap:wrap; }
+.footer-bottom-right span { color:rgba(255,255,255,0.60); }
+.footer-bottom-right a { color:rgba(255,255,255,0.80); text-decoration:underline; text-underline-offset:4px; transition:color 150ms ease; }
+.footer-bottom-right a:hover { color:var(--white); }
+
+/* Modal */
+.modal-overlay { position:fixed; inset:0; z-index:80; }
+.modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.60); }
+.modal-center { position:relative; height:100%; display:flex; align-items:center; justify-content:center; padding:1rem; }
+.modal-box { width:100%; max-width:32rem; background:var(--white); border:1px solid var(--line); box-shadow:0 10px 20px rgba(2,6,23,0.10); border-radius:0; }
+.modal-header { padding:1.5rem; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+.modal-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+.modal-header h3 { margin-top:0.25rem; font-size:1.125rem; font-weight:600; }
+.modal-close { padding:0.5rem; border:1px solid var(--line); background:var(--white); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; border-radius:0; transition:background 150ms ease; }
+.modal-close:hover { background:#F9FAFB; }
+.modal-body { padding:1.5rem; }
+.modal-body > p { font-size:0.875rem; color:var(--muted); line-height:1.625; }
+.modal-form { margin-top:1.25rem; display:flex; flex-direction:column; gap:1rem; }
+
+/* Responsive */
+@media (min-width:640px) {
+  .container { padding-left:2.5rem; padding-right:2.5rem; }
+  .btn-enquiry { display:inline-flex; }
+  .btn-callback-nav { display:inline-flex; }
+  .hero-actions { flex-direction:row; }
+  .section-actions { flex-direction:row; }
+  .form-grid-2 { grid-template-columns:1fr 1fr; }
+  .form-actions { flex-direction:row; }
+  .hero-content-inner { padding-top:7rem; padding-bottom:13rem; }
+}
+@media (min-width:768px) {
+  .section { padding-top:5rem; padding-bottom:5rem; }
+  .hero-img { height:85vh; }
+  .hero-content-inner { padding-top:8rem; padding-bottom:14rem; }
+  .tiles-grid { grid-template-columns:repeat(3,1fr); }
+  .svc-item { flex-basis:calc((100% - var(--svc-gap)) / 2); }
+  .contact-info-grid { grid-template-columns:repeat(3,1fr); }
+  .contact-info-item:nth-child(2) { justify-content:center; }
+  .contact-info-item:nth-child(3) { justify-content:flex-end; }
+  .contact-info-item:nth-child(3) .contact-info-text { text-align:right; }
+  .contact-tiles { grid-template-columns:repeat(3,1fr); }
+  .footer-grid { grid-template-columns:repeat(4,1fr); }
+  .footer-bottom { flex-direction:row; align-items:center; justify-content:space-between; }
+  .svc-row-img { height:260px; }
+  .page-header { padding-top:5rem; padding-bottom:5rem; }
+}
+@media (min-width:1024px) {
+  .container { padding-left:6rem; padding-right:6rem; }
+  .nav-desktop { display:flex; }
+  .btn-menu { display:none; }
+  .hero-h1 { letter-spacing:-0.045em; }
+  .two-col-grid { grid-template-columns:repeat(2,1fr); align-items:stretch; }
+  .approach-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; align-items:stretch; }
+  .svc-item { flex-basis:calc((100% - (var(--svc-gap) * 2)) / 3); }
+  .svc-row-grid { grid-template-columns:2fr 3fr; }
+  .svc-row-img { height:320px; }
+  .svc-row-body { padding:2.5rem; }
+  .content-grid { grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; }
+  .prose-col { grid-column:span 8; }
+  .aside-col { grid-column:span 4; }
+  .page-404-grid { grid-template-columns:7fr 5fr; }
+  .svc-photo { height:210px; }
+  .svc-body { padding:2rem; }
+  .card-pad { padding:2.5rem; }
+  .contact-form-wrap { padding:2.5rem; }
+}
+
+    @media (min-width:1024px) { #two-col-content { grid-template-columns: 1fr 1fr; } }
+</style>
 </head>
-
-<body class="bg-white text-ink antialiased">
-
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-      <div class="h-[72px] flex items-center justify-between">
-        <a href="/index.html" class="flex items-center" aria-label="T1 Asset Management home">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/6960e9d0f0f61a3bd50e138f/2e919fa3-dcd8-4fe7-ada5-93ada62a980d/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png?format=2500w"
-            alt="T1 Asset Management"
-            class="h-10 w-auto"
-            loading="eager"
-            decoding="async"
-          />
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/index.html" class="nav-logo" aria-label="T1 Asset Management home">
+          <img src="https://images.squarespace-cdn.com/content/v1/6960e9d0f0f61a3bd50e138f/2e919fa3-dcd8-4fe7-ada5-93ada62a980d/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png?format=2500w" alt="T1 Asset Management" loading="eager" decoding="async" />
         </a>
-
-        <nav class="hidden md:flex items-center gap-10 text-[13px] tracking-wide" aria-label="Primary navigation">
-          <a href="/index.html" class="text-ink/80 hover:text-ink transition">Home</a>
-
+        <nav class="nav-desktop" aria-label="Primary navigation">
+          <a href="/index.html">Home</a>
           <div class="nav-dd">
-            <button
-              type="button"
-              id="rentBtn"
-              class="inline-flex items-center gap-2 text-ink/80 hover:text-ink transition"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="rentMenu"
-            >
-              Rent Reviews <i data-feather="chevron-down" class="w-4 h-4"></i>
-            </button>
-
-            <div id="rentMenu" class="nav-dd-panel sq" role="menu" aria-label="Rent Reviews submenu">
-              <a href="/rent-reviews-tenants.html" class="block px-4 py-3 text-sm hover:bg-gray-50" role="menuitem">Tenants</a>
-              <a href="/rent-reviews-landlords.html" class="block px-4 py-3 text-sm hover:bg-gray-50" role="menuitem">Landlords</a>
+            <button type="button" id="rentBtn" class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" aria-controls="rentMenu">Rent Reviews <i data-feather="chevron-down" class="icon icon-sm"></i></button>
+            <div id="rentMenu" class="nav-dd-panel" role="menu">
+              <a href="/rent-reviews-tenants.html" role="menuitem">Tenants</a>
+              <a href="/rent-reviews-landlords.html" role="menuitem">Landlords</a>
             </div>
           </div>
-
-          <a href="/professional-services.html" class="text-ink/80 hover:text-ink transition">Other Services</a>
-          <a href="#contact" class="text-ink/80 hover:text-ink transition">Contact</a>
+          <a href="/professional-services.html">Other Services</a>
+          <a href="/contact.html">Contact</a>
         </nav>
-
-        <div class="flex items-center gap-3">
-          <a href="#contact" class="hidden sm:inline-flex px-5 py-[10px] sq border border-line text-[13px] font-medium hover:bg-gray-50 transition">
-            Enquiry
-          </a>
-
-          <button type="button" data-open-callback class="hidden sm:inline-flex px-5 py-[10px] sq bg-ink text-white text-[13px] font-semibold hover:bg-black transition">
-            Request a call back
-          </button>
-
-          <button
-            type="button"
-            id="menuBtn"
-            class="md:hidden inline-flex items-center justify-center w-10 h-10 sq border border-line hover:bg-gray-50 transition"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            <i data-feather="menu" class="w-5 h-5"></i>
-          </button>
+        <div class="header-actions">
+          <a href="/contact.html#form" class="btn-enquiry">Enquiry</a>
+          <button type="button" data-open-callback class="btn-callback-nav">Request a call back</button>
+          <button type="button" id="menuBtn" class="btn-menu" aria-label="Open menu" aria-expanded="false"><i data-feather="menu" class="icon"></i></button>
         </div>
       </div>
     </div>
   </header>
-
-  <!-- Mobile menu overlay -->
-  <div id="menuBackdrop" class="menu-backdrop md:hidden" aria-hidden="true"></div>
-
-  <!-- Mobile menu -->
-  <div id="menuDrawer" class="menu-drawer md:hidden" role="dialog" aria-modal="true" aria-label="Mobile menu">
-    <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24 py-4">
-      <nav class="flex flex-col text-sm" aria-label="Mobile navigation">
-        <a href="/index.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Home</a>
-        <a href="/rent-reviews-tenants.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Rent Reviews — Tenants</a>
-        <a href="/rent-reviews-landlords.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Rent Reviews — Landlords</a>
-        <a href="/professional-services.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Other Services</a>
-        <a href="#contact" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Contact</a>
-
-        <button
-          type="button"
-          data-open-callback
-          data-close-menu
-          class="mt-3 w-full sq bg-ink text-white font-semibold px-4 py-3 text-left hover:bg-black transition"
-        >
-          Request a call back
-        </button>
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+  <div id="menuDrawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="container" style="padding-top:1rem;padding-bottom:1rem;">
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="/index.html" data-close-menu>Home</a>
+        <a href="/rent-reviews-tenants.html" data-close-menu>Rent Reviews — Tenants</a>
+        <a href="/rent-reviews-landlords.html" data-close-menu>Rent Reviews — Landlords</a>
+        <a href="/professional-services.html" data-close-menu>Other Services</a>
+        <a href="/contact.html" data-close-menu>Contact</a>
+        <button type="button" data-open-callback data-close-menu class="btn-callback-mobile">Request a call back</button>
       </nav>
     </div>
   </div>
-
   <main>
-
-    <!-- HERO -->
-    <section class="relative overflow-hidden">
-      <div class="relative hero-overlay">
-        <img
-          src="https://images.squarespace-cdn.com/content/v1/68e96700e97e214d978494dd/1760132451474-GNV97O11MCL2MVS92IMU/unsplash-image-OIc_-XMXF_s.jpg?format=2500w"
-          alt="Commercial property rent reviews in Leeds for landlords"
-          class="w-full h-[72vh] min-h-[640px] md:h-[78vh] object-cover"
-          loading="eager"
-          decoding="async"
-        />
-
-        <div class="absolute inset-0">
-          <div class="max-w-7xl mx-auto h-full px-4 md:px-10 lg:px-24">
-            <div class="h-full flex items-center pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24">
-              <div class="w-full">
-                <div class="max-w-4xl reveal">
-                  <p class="text-[11px] uppercase tracking-[0.28em] text-white/70">
-                    Leeds-based • Yorkshire &amp; UK-wide
-                  </p>
-
-                  <h1 class="hero-h1 mt-5 text-white font-semibold leading-[1.02]
-                             text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px]">
-                    Rent Reviews for Landlords in Leeds
-                  </h1>
-
-                  <p class="mt-6 text-white/80 leading-relaxed text-[14px] sm:text-[16px] md:text-[18px] max-w-2xl">
-                    Evidence-led commercial rent review advice to help landlords maximise market rent and strengthen investment performance.
-                  </p>
-
-                  <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                    <a href="#content"
-                       class="inline-flex items-center justify-center px-6 py-3 sq bg-white text-ink text-sm font-semibold hover:bg-gray-100 transition">
-                      Learn more
-                    </a>
-
-                    <a href="#contact"
-                       class="inline-flex items-center justify-center px-6 py-3 sq border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition">
-                      Contact
-                    </a>
-                  </div>
-
-                  <div class="mt-10 h-px w-full bg-white/15"></div>
-
-                  <div class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-white/65 text-[12px] tracking-wide">
-                    <span>Leeds</span><span class="opacity-40">•</span>
-                    <span>Landlord representation</span><span class="opacity-40">•</span>
-                    <span>Market-led outcomes</span>
-                  </div>
+    <section class="hero-section">
+      <div class="hero-overlay">
+        <img src="https://images.squarespace-cdn.com/content/v1/68e96700e97e214d978494dd/1760132451474-GNV97O11MCL2MVS92IMU/unsplash-image-OIc_-XMXF_s.jpg?format=2500w" alt="Rent Reviews for Landlords in Leeds" class="hero-img" loading="eager" decoding="async" />
+        <div class="hero-content">
+          <div class="container">
+            <div class="hero-content-inner">
+              <div class="hero-text-max reveal">
+                <p class="hero-eyebrow">Leeds-based • Yorkshire &amp; UK-wide</p>
+                <h1 class="hero-h1">Rent Reviews for Landlords in Leeds</h1>
+                <p class="hero-sub">Evidence-led commercial rent review advice to help landlords maximise market rent and strengthen investment performance.</p>
+                <div class="hero-actions">
+                  <a href="#content" class="btn btn-white">Learn more</a>
+                  <a href="#contact" class="btn btn-outline-white">Contact</a>
                 </div>
+                <div class="hero-rule"></div>
+                <div class="hero-tags"><span>Leeds</span><span class="dot">&bull;</span><span>Landlord representation</span><span class="dot">&bull;</span><span>Market-led outcomes</span></div>
               </div>
             </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- INTRO -->
-    <section id="content" class="py-16 md:py-20">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-        <div class="max-w-3xl reveal">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Commercial rent reviews • Leeds</p>
-          <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
-            Commercial landlord rent reviews — handled with clarity and discipline
-          </h2>
-
-          <p class="mt-5 text-muted leading-relaxed">
-            T1 Asset Management supports commercial landlords across Leeds and Yorkshire with evidence-led rent review strategy and negotiation.
-            We focus on robust comparable evidence, clear options, and disciplined execution to help secure a fair open-market rent and protect long-term investment performance.
-          </p>
-
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <button type="button" data-open-callback class="inline-flex items-center justify-center px-5 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-              Request a call back
-            </button>
-            <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 sq border border-line text-sm font-semibold hover:bg-gray-50 transition">
-              Contact us
-            </a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- 3 PARAGRAPHS LEFT / 3 PARAGRAPHS RIGHT -->
-    <section class="py-16 md:py-20 bg-paper">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-        <div class="reveal max-w-3xl">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Leeds rent reviews</p>
-          <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">Maximise your investment with specialist advice</h2>
-        </div>
-
-        <div class="mt-10 grid lg:grid-cols-2 gap-8 lg:gap-10">
-          <div class="reveal space-y-4 text-muted leading-relaxed">
-            <p>
-              If you're a commercial landlord of a shop, office, or industrial/warehouse property and want to maximise your investment,
-              T1 Asset Management can advise on strategy, timing and evidence from the outset.
-            </p>
-            <p>
-              In confidence, we can review the lease, explain the process clearly, and outline flexible fee structures aligned to your objectives.
-            </p>
-            <p>
-              Commercial leases can be intricate and require thorough analysis to ensure clarity and leverage when negotiating a rent review or lease renewal.
-            </p>
+    <section id="content" class="section">
+      <div class="container">
+        <div class="reveal" style="max-width:48rem;">
+          <p class="section-label">Commercial rent reviews • Leeds</p>
+          <h2 class="section-h2">Commercial landlord rent reviews — handled with clarity and discipline</h2>
+          <p class="section-body">T1 Asset Management supports commercial landlords across Leeds and Yorkshire with evidence-led rent review strategy and negotiation. We focus on robust comparable evidence, clear options, and disciplined execution to help secure a fair open-market rent and protect long-term investment performance.</p>
+          <div class="section-actions">
+            <button type="button" data-open-callback class="btn btn-primary">Request a call back</button>
+            <a href="#contact" class="btn btn-outline">Contact us</a>
           </div>
-
-          <div class="reveal space-y-4 text-muted leading-relaxed">
-            <p>
-              Landlords must be confident they are achieving the strongest market rental value available, and our approach is grounded in comparable evidence and disciplined negotiation.
-            </p>
-            <p>
-              As an illustration, a £20,000 per year increase in rental income could add material value to a property — with greater impact on larger assets.
-            </p>
-            <p>
-              This is why specialist representation can be a decisive advantage when managing rent reviews and lease renewals.
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-10 reveal flex flex-col sm:flex-row gap-3">
-          <button type="button" data-open-callback class="inline-flex items-center justify-center px-5 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-            Request a call back
-          </button>
-          <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 sq border border-line text-sm font-semibold hover:bg-gray-50 transition">
-            Contact us
-          </a>
         </div>
       </div>
     </section>
-
-    <!-- CONTACT (Formspree) -->
-    <section id="contact" class="py-16 md:py-20">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-
-        <div class="reveal max-w-3xl">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Contact</p>
-          <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">A no obligation conversation, in confidence.</h2>
-          <p class="mt-5 text-muted leading-relaxed">
-            Please complete the form and one of our specialists will contact you in the strictest confidence.
-          </p>
-        </div>
-
-        <div class="mt-8 sq border border-line bg-paper px-6 py-5 reveal">
-          <div class="grid md:grid-cols-3 gap-5 text-sm">
-            <div class="flex items-start gap-3 text-muted leading-relaxed">
-              <span class="mt-0.5 inline-flex items-center justify-center w-9 h-9 sq border border-line bg-white">
-                <i data-feather="map-pin" class="w-4 h-4"></i>
-              </span>
-              <div>
-                <p class="text-ink font-semibold">T1 Asset Management</p>
-                <p class="mt-1">Unit 19 Holly Park Mills, Calverley, Leeds, LS28 5QS</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 md:justify-center">
-              <span class="mt-0.5 inline-flex items-center justify-center w-9 h-9 sq border border-line bg-white">
-                <i data-feather="phone" class="w-4 h-4"></i>
-              </span>
-              <div class="text-muted">
-                <p class="text-[11px] uppercase tracking-[0.22em]">Telephone</p>
-                <a href="tel:07912222905" class="mt-1 inline-block font-semibold text-ink hover:underline underline-offset-4">
-                  0791 2222 905
-                </a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 md:justify-end">
-              <span class="mt-0.5 inline-flex items-center justify-center w-9 h-9 sq border border-line bg-white">
-                <i data-feather="mail" class="w-4 h-4"></i>
-              </span>
-              <div class="text-muted md:text-right">
-                <p class="text-[11px] uppercase tracking-[0.22em]">Email</p>
-                <a href="mailto:rob@t1assetmanagement.co.uk" class="mt-1 inline-block font-semibold text-ink hover:underline underline-offset-4">
-                  rob@t1assetmanagement.co.uk
-                </a>
-              </div>
-            </div>
+    <section class="section section-paper">
+      <div class="container">
+        <div style="display:grid;gap:2rem;grid-template-columns:1fr;" class="reveal" id="two-col-content">
+          <div style="display:grid;gap:1rem;color:var(--muted);line-height:1.625;font-size:0.9375rem;">
+            <p>If you’re a commercial landlord of a shop, office, or industrial/warehouse property and want to maximise your investment, T1 Asset Management can advise on strategy, timing and evidence from the outset.</p>
+            <p>In confidence, we can review the lease, explain the process clearly, and outline flexible fee structures aligned to your objectives.</p>
+            <p>Commercial leases can be intricate and require thorough analysis to ensure clarity and leverage when negotiating a rent review or lease renewal.</p>
+          </div>
+          <div style="display:grid;gap:1rem;color:var(--muted);line-height:1.625;font-size:0.9375rem;">
+            <p>Landlords must be confident they are achieving the strongest market rental value available, and our approach is grounded in comparable evidence and disciplined negotiation.</p>
+            <p>As an illustration, a £20,000 per year increase in rental income could add material value to a property — with greater impact on larger assets.</p>
+            <p>This is why specialist representation can be a decisive advantage when managing rent reviews and lease renewals.</p>
           </div>
         </div>
-
-        <div class="mt-8 sq border border-line bg-white p-8 sm:p-10 shadow-soft reveal" id="form">
-          <form id="contactForm" action="https://formspree.io/f/xgoleoed" method="POST" class="space-y-4">
-            <input type="hidden" name="_subject" value="New website enquiry — T1 Asset Management" />
-            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
-
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium">First Name <span class="text-muted">(required)</span></label>
-                <input type="text" name="first_name" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="First Name" autocomplete="given-name" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">Last Name <span class="text-muted">(required)</span></label>
-                <input type="text" name="last_name" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="Last Name" autocomplete="family-name" />
-              </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium">Phone</label>
-                <input type="tel" name="phone" class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="07..." autocomplete="tel" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">Email <span class="text-muted">(required)</span></label>
-                <input type="email" name="email" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="Email" autocomplete="email" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium">Message</label>
-              <textarea name="message" rows="5" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="Tell us what you need help with..."></textarea>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-3">
-              <button type="submit" id="contactSubmit" class="flex-1 inline-flex items-center justify-center px-6 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-                Send enquiry <i data-feather="send" class="ml-2 w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-callback class="flex-1 inline-flex items-center justify-center px-6 py-3 sq border border-line text-sm font-semibold hover:bg-gray-50 transition">
-                Request a call back
-              </button>
-            </div>
-
-            <p id="formStatus" class="text-xs text-muted leading-relaxed hidden"></p>
-            <p class="text-xs text-muted leading-relaxed">
-              By submitting this form you agree we may contact you in response to your enquiry.
-            </p>
-          </form>
+        <div class="section-actions reveal" style="margin-top:2.5rem;">
+          <button type="button" data-open-callback class="btn btn-primary">Request a call back</button>
+          <a href="#contact" class="btn btn-outline">Contact us</a>
         </div>
-
       </div>
     </section>
-
-    <!-- ✅ FOOTER (MATCHES HOMEPAGE) -->
-    <footer class="bg-black text-white">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24 py-14">
-        <div class="grid md:grid-cols-4 gap-10 reveal">
-          <div>
-            <img src="https://images.squarespace-cdn.com/content/v1/601fd0787b0ff91513ebe340/a4fbaec7-8c0d-427b-9f85-bc15ee43844e/Monochrome+on+Transparent.png?format=1500w"
-                 alt="T1 Asset Management" class="h-10 w-auto" loading="lazy" decoding="async"/>
-            <p class="mt-4 text-sm text-white/70 leading-relaxed max-w-sm">
-              Independent commercial property advice across Leeds, Yorkshire and the UK.
-            </p>
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="reveal" style="max-width:48rem;">
+          <p class="section-label">Contact</p>
+          <h2 class="section-h2">A no obligation conversation, in confidence.</h2>
+          <p class="section-body">Please complete the form and one of our specialists will contact you in the strictest confidence.</p>
+        </div>
+        <div class="contact-info-bar reveal" style="margin-top:2rem;">
+          <div class="contact-info-grid">
+            <div class="contact-info-item">
+              <span class="icon-box"><i data-feather="map-pin" class="icon icon-sm"></i></span>
+              <div><p class="company-name">T1 Asset Management</p><p style="margin-top:0.25rem;color:var(--muted);font-size:0.875rem;">Unit 19 Holly Park Mills, Calverley, Leeds, LS28 5QS</p></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="icon-box"><i data-feather="phone" class="icon icon-sm"></i></span>
+              <div class="contact-info-text"><p class="info-label">Telephone</p><a href="tel:07912222905">0791 2222 905</a></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="icon-box"><i data-feather="mail" class="icon icon-sm"></i></span>
+              <div class="contact-info-text"><p class="info-label">Email</p><a href="mailto:rob@t1assetmanagement.co.uk">rob@t1assetmanagement.co.uk</a></div>
+            </div>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Services</p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><a class="text-white/80 hover:text-white transition" href="/professional-services.html">Professional Services</a></li>
-              <li><a class="text-white/80 hover:text-white transition" href="/contact.html">Contact</a></li>
-              <li><button data-open-callback class="text-left text-white/80 hover:text-white transition">Request a call back</button></li>
+        </div>
+        <div class="contact-form-wrap reveal" style="margin-top:2rem;" id="form">
+              <form id="contactForm" action="https://formspree.io/f/xgoleoed" method="POST" class="form-space">
+                <input type="hidden" name="_subject" value="New website enquiry — T1 Asset Management" />
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                <div class="form-grid-2">
+                  <div class="form-field"><label>First Name <span>(required)</span></label><input type="text" name="first_name" required class="f-in" placeholder="First Name" autocomplete="given-name" /></div>
+                  <div class="form-field"><label>Last Name <span>(required)</span></label><input type="text" name="last_name" required class="f-in" placeholder="Last Name" autocomplete="family-name" /></div>
+                </div>
+                <div class="form-grid-2">
+                  <div class="form-field"><label>Phone</label><input type="tel" name="phone" class="f-in" placeholder="07..." autocomplete="tel" /></div>
+                  <div class="form-field"><label>Email <span>(required)</span></label><input type="email" name="email" required class="f-in" placeholder="Email" autocomplete="email" /></div>
+                </div>
+                <div class="form-field"><label>Message</label><textarea name="message" rows="5" required class="f-in" placeholder="Tell us what you need help with..."></textarea></div>
+                <div class="form-actions">
+                  <button type="submit" id="contactSubmit" class="btn btn-primary">Send enquiry <i data-feather="send" class="icon icon-sm"></i></button>
+                  <button type="button" data-open-callback class="btn btn-outline">Request a call back</button>
+                </div>
+                <p id="formStatus" class="hidden"></p>
+                <p class="form-notice">By submitting this form you agree we may contact you in response to your enquiry.</p>
+              </form>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-grid reveal">
+          <div class="footer-brand">
+            <img src="https://images.squarespace-cdn.com/content/v1/601fd0787b0ff91513ebe340/a4fbaec7-8c0d-427b-9f85-bc15ee43844e/Monochrome+on+Transparent.png?format=1500w" alt="T1 Asset Management" loading="lazy" decoding="async" />
+            <p>Specialist commercial rent review and lease advisory support across Leeds, Yorkshire and the UK.</p>
+            <div class="footer-rics-wrap">
+              <img src="https://raw.githubusercontent.com/franksmedia23-blip/franksmedia23-blip.github.io/refs/heads/main/Regulated_by_RICS_Logo-White.png" alt="Regulated by RICS" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-label">Services</p>
+            <ul>
+              <li><a href="/professional-services.html">Professional Services</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><button type="button" data-open-callback>Request a call back</button></li>
             </ul>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Office</p>
-            <div class="mt-4 space-y-2 text-sm text-white/70">
+          <div class="footer-col">
+            <p class="footer-col-label">Office</p>
+            <div class="footer-office">
               <p>Unit 19 Holly Park Mills</p><p>Calverley</p><p>Leeds</p><p>LS28 5QS</p>
             </div>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Legal</p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="/privacy-policy.html" class="text-white/80 hover:text-white transition">Privacy Policy</a></li>
-              <li><a href="/terms-of-service.html" class="text-white/80 hover:text-white transition">Terms of use</a></li>
+          <div class="footer-col">
+            <p class="footer-col-label">Legal</p>
+            <ul>
+              <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="/terms-of-service.html">Terms of use</a></li>
+              <li><a href="https://franksmedia23-blip.github.io/T1_Complaints_Procedure.pdf" target="_blank" rel="noopener noreferrer">Complaints Procedure</a></li>
             </ul>
           </div>
         </div>
-
-        <div class="mt-12 pt-8 border-t border-white/15 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between reveal">
-          <p class="text-sm text-white/60">© <span id="year"></span> T1 Asset Management. All rights reserved.</p>
-          <div class="flex gap-6 text-sm">
-            <span class="text-white/60">Website design by</span>
-            <a href="http://franks-media.co.uk" target="_blank" rel="noopener noreferrer"
-               class="text-white/80 hover:text-white transition underline underline-offset-4">Franks Media</a>
+        <div class="footer-bottom reveal">
+          <p>&copy; <span id="year"></span> T1 Asset Management. All rights reserved.</p>
+          <div class="footer-bottom-right">
+            <span>Website design by</span>
+            <a href="http://franks-media.co.uk" target="_blank" rel="noopener noreferrer">Franks Media</a>
           </div>
         </div>
       </div>
     </footer>
-
   </main>
-
-  <!-- CALLBACK MODAL (Formspree) -->
-  <div id="callbackModal" class="fixed inset-0 z-[80] hidden">
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="relative h-full flex items-center justify-center p-4">
-      <div class="sq w-full max-w-lg bg-white border border-line shadow-crisp">
-        <div class="p-6 border-b border-line flex items-center justify-between">
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Request a call back</p>
-            <h3 class="mt-1 text-lg font-semibold">No obligation chat</h3>
-          </div>
-          <button type="button" data-close-callback class="p-2 sq border border-line hover:bg-gray-50 transition" aria-label="Close">
-            <i data-feather="x" class="w-5 h-5"></i>
-          </button>
+  <div id="callbackModal" class="modal-overlay hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-center">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div><p class="modal-label">Request a call back</p><h3>No obligation chat</h3></div>
+          <button type="button" data-close-callback class="modal-close" aria-label="Close"><i data-feather="x" class="icon"></i></button>
         </div>
-
-        <div class="p-6">
-          <p class="text-sm text-muted leading-relaxed">
-            Leave your name and number and we’ll call you to discuss how we can help.
-          </p>
-
-          <form id="callbackForm" action="https://formspree.io/f/xgoleoed" method="POST" class="mt-5 space-y-4">
+        <div class="modal-body">
+          <p>Leave your name and number and we'll call you to discuss how we can help.</p>
+          <form id="callbackForm" action="https://formspree.io/f/xgoleoed" method="POST" class="modal-form">
             <input type="hidden" name="_subject" value="Callback request — T1 Asset Management" />
             <input type="hidden" name="form_type" value="callback_request" />
-            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
-
-            <div>
-              <label class="block text-sm font-medium">Name</label>
-              <input type="text" name="name" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="Your name" />
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium">Phone number</label>
-              <input type="tel" name="phone" required class="mt-2 w-full sq px-4 py-3 text-sm f-in" placeholder="07..." />
-            </div>
-
-            <button type="submit" id="callbackSubmit" class="w-full inline-flex items-center justify-center px-6 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-              Call me back <i data-feather="phone-call" class="ml-2 w-4 h-4"></i>
-            </button>
-
-            <button type="button" data-close-callback class="w-full inline-flex items-center justify-center px-6 py-3 sq border border-line text-sm font-semibold hover:bg-gray-50 transition">
-              Close
-            </button>
-
-            <p id="callbackStatus" class="text-xs text-muted leading-relaxed hidden"></p>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-field"><label>Name</label><input type="text" name="name" required class="f-in" placeholder="Your name" /></div>
+            <div class="form-field"><label>Phone number</label><input type="tel" name="phone" required class="f-in" placeholder="07..." /></div>
+            <button type="submit" id="callbackSubmit" class="btn btn-primary" style="width:100%;justify-content:center;">Call me back <i data-feather="phone-call" class="icon icon-sm"></i></button>
+            <button type="button" data-close-callback class="btn btn-outline" style="width:100%;justify-content:center;">Close</button>
+            <p id="callbackStatus" class="hidden"></p>
           </form>
         </div>
       </div>
     </div>
   </div>
-
   <script>
     feather.replace();
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Mobile menu
-    const menuBtn = document.getElementById("menuBtn");
-    const menuDrawer = document.getElementById("menuDrawer");
-    const menuBackdrop = document.getElementById("menuBackdrop");
-
-    function setMenuIcon(open){
-      menuBtn.innerHTML = open
-        ? '<i data-feather="x" class="w-5 h-5"></i>'
-        : '<i data-feather="menu" class="w-5 h-5"></i>';
-      feather.replace();
-    }
-    function openMenu(){
-      menuDrawer.classList.add("open");
-      menuBackdrop.classList.add("open");
-      document.body.classList.add("no-scroll");
-      menuBtn.setAttribute("aria-expanded", "true");
-      setMenuIcon(true);
-    }
-    function closeMenu(){
-      menuDrawer.classList.remove("open");
-      menuBackdrop.classList.remove("open");
-      document.body.classList.remove("no-scroll");
-      menuBtn.setAttribute("aria-expanded", "false");
-      setMenuIcon(false);
-    }
-    function isOpen(){ return menuDrawer.classList.contains("open"); }
-
-    menuBtn.addEventListener("click", () => { isOpen() ? closeMenu() : openMenu(); });
-    menuBackdrop.addEventListener("click", closeMenu);
-    document.querySelectorAll("[data-close-menu]").forEach(el => el.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && isOpen()) closeMenu(); });
-    window.addEventListener("resize", () => { if (window.innerWidth >= 768 && isOpen()) closeMenu(); });
-
-    // Callback modal
-    const modal = document.getElementById("callbackModal");
-    function openCallback() {
-      closeMenu();
-      modal.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-      feather.replace();
-    }
-    function closeCallback() {
-      modal.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
-    window.closeCallback = closeCallback;
-
-    document.querySelectorAll("[data-open-callback]").forEach(btn => btn.addEventListener("click", openCallback));
-    document.querySelectorAll("[data-close-callback]").forEach(btn => btn.addEventListener("click", closeCallback));
-    modal.addEventListener("click", (e) => { if (e.target === modal.firstElementChild) closeCallback(); });
-
-    // Rent Reviews dropdown
-    (function () {
-      const btn = document.getElementById("rentBtn");
-      const menu = document.getElementById("rentMenu");
-      if (!btn || !menu) return;
-
-      let closeT = null;
-
-      function openDD() {
-        if (closeT) { clearTimeout(closeT); closeT = null; }
-        menu.classList.add("open");
-        btn.setAttribute("aria-expanded", "true");
-      }
-
-      function closeDD() {
-        menu.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-      }
-
-      function scheduleClose() {
-        if (closeT) clearTimeout(closeT);
-        closeT = setTimeout(closeDD, 220);
-      }
-
-      btn.addEventListener("mouseenter", openDD);
-      menu.addEventListener("mouseenter", openDD);
-      btn.addEventListener("mouseleave", scheduleClose);
-      menu.addEventListener("mouseleave", scheduleClose);
-
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const isOpen = menu.classList.contains("open");
-        if (isOpen) closeDD(); else openDD();
-      });
-
-      document.addEventListener("click", (e) => {
-        const within = btn.contains(e.target) || menu.contains(e.target);
-        if (!within) closeDD();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeDD();
+    const menuBtn=document.getElementById("menuBtn"),menuDrawer=document.getElementById("menuDrawer"),menuBackdrop=document.getElementById("menuBackdrop");
+    function setMenuIcon(o){menuBtn.innerHTML=o?'<i data-feather="x" class="icon"></i>':'<i data-feather="menu" class="icon"></i>';feather.replace();}
+    function openMenu(){menuDrawer.classList.add("open");menuBackdrop.classList.add("open");document.body.classList.add("no-scroll");menuBtn.setAttribute("aria-expanded","true");setMenuIcon(true);}
+    function closeMenu(){menuDrawer.classList.remove("open");menuBackdrop.classList.remove("open");document.body.classList.remove("no-scroll");menuBtn.setAttribute("aria-expanded","false");setMenuIcon(false);}
+    function isMenuOpen(){return menuDrawer.classList.contains("open");}
+    menuBtn.addEventListener("click",()=>{isMenuOpen()?closeMenu():openMenu();});
+    menuBackdrop.addEventListener("click",closeMenu);
+    document.querySelectorAll("[data-close-menu]").forEach(el=>el.addEventListener("click",closeMenu));
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"&&isMenuOpen())closeMenu();});
+    window.addEventListener("resize",()=>{if(window.innerWidth>=1024&&isMenuOpen())closeMenu();});
+    const modal=document.getElementById("callbackModal");
+    function openCallback(){closeMenu();modal.classList.remove("hidden");document.body.classList.add("overflow-hidden");feather.replace();}
+    function closeCallback(){modal.classList.add("hidden");document.body.classList.remove("overflow-hidden");}
+    window.closeCallback=closeCallback;
+    document.querySelectorAll("[data-open-callback]").forEach(btn=>btn.addEventListener("click",openCallback));
+    document.querySelectorAll("[data-close-callback]").forEach(btn=>btn.addEventListener("click",closeCallback));
+    modal.addEventListener("click",e=>{if(e.target===modal.querySelector(".modal-backdrop"))closeCallback();});
+    (function(){
+      const btn=document.getElementById("rentBtn"),menu=document.getElementById("rentMenu");
+      if(!btn||!menu)return;
+      let t=null;
+      function openDD(){if(t){clearTimeout(t);t=null;}menu.classList.add("open");btn.setAttribute("aria-expanded","true");}
+      function closeDD(){menu.classList.remove("open");btn.setAttribute("aria-expanded","false");}
+      function schedClose(){if(t)clearTimeout(t);t=setTimeout(closeDD,220);}
+      btn.addEventListener("mouseenter",openDD);menu.addEventListener("mouseenter",openDD);
+      btn.addEventListener("mouseleave",schedClose);menu.addEventListener("mouseleave",schedClose);
+      btn.addEventListener("click",e=>{e.preventDefault();menu.classList.contains("open")?closeDD():openDD();});
+      document.addEventListener("click",e=>{if(!btn.contains(e.target)&&!menu.contains(e.target))closeDD();});
+      document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDD();});
+    })();
+    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target);}});},{threshold:0.12,rootMargin:"0px 0px -10% 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    function revealInView(){document.querySelectorAll(".reveal").forEach(el=>{if(!el.classList.contains("is-visible")){const r=el.getBoundingClientRect(),vh=window.innerHeight||document.documentElement.clientHeight;if(r.top<vh*0.92&&r.bottom>vh*0.08)el.classList.add("is-visible");}});}
+    requestAnimationFrame(revealInView);window.addEventListener("load",()=>setTimeout(revealInView,50));window.addEventListener("resize",()=>requestAnimationFrame(revealInView));
+  </script>
+  <script>
+    (function(){
+      const form=document.getElementById("contactForm"),btn=document.getElementById("contactSubmit"),status=document.getElementById("formStatus");
+      if(!form)return;
+      form.addEventListener("submit",async e=>{
+        e.preventDefault();status.classList.remove("hidden");status.textContent="Sending…";btn.disabled=true;btn.style.opacity="0.6";
+        try{const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+          if(res.ok){form.reset();status.textContent="Thanks — we will be in touch shortly.";}
+          else{status.textContent="Sorry — something went wrong. Please try again or email rob@t1assetmanagement.co.uk.";}
+        }catch{status.textContent="Sorry — something went wrong. Please try again or email rob@t1assetmanagement.co.uk.";}
+        finally{btn.disabled=false;btn.style.opacity="";if(window.feather)feather.replace();}
       });
     })();
-
-    // Fade-in on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-    // Formspree AJAX submit (Contact form)
-    (function () {
-      const form = document.getElementById("contactForm");
-      const btn = document.getElementById("contactSubmit");
-      const status = document.getElementById("formStatus");
-      if (!form) return;
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        status.classList.remove("hidden");
-        status.textContent = "Sending…";
-        btn.disabled = true;
-        btn.classList.add("opacity-60");
-
-        try {
-          const formData = new FormData(form);
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" }
-          });
-
-          if (res.ok) {
-            form.reset();
-            status.textContent = "Thanks — we will be in touch shortly.";
-          } else {
-            status.textContent = "Sorry — something went wrong. Please try again or email rob@t1assetmanagement.co.uk.";
-          }
-        } catch (err) {
-          status.textContent = "Sorry — something went wrong. Please try again or email rob@t1assetmanagement.co.uk.";
-        } finally {
-          btn.disabled = false;
-          btn.classList.remove("opacity-60");
-          if (window.feather) window.feather.replace();
-        }
-      });
-    })();
-
-    // Formspree AJAX submit (Callback modal)
-    (function () {
-      const form = document.getElementById("callbackForm");
-      const btn = document.getElementById("callbackSubmit");
-      const status = document.getElementById("callbackStatus");
-      if (!form) return;
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        status.classList.remove("hidden");
-        status.textContent = "Sending…";
-        btn.disabled = true;
-        btn.classList.add("opacity-60");
-
-        try {
-          const formData = new FormData(form);
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" }
-          });
-
-          if (res.ok) {
-            form.reset();
-            status.textContent = "Thanks — we will call you back shortly.";
-            setTimeout(() => { closeCallback(); }, 900);
-          } else {
-            status.textContent = "Sorry — something went wrong. Please try again.";
-          }
-        } catch (err) {
-          status.textContent = "Sorry — something went wrong. Please try again.";
-        } finally {
-          btn.disabled = false;
-          btn.classList.remove("opacity-60");
-          if (window.feather) window.feather.replace();
-        }
+  </script>
+  <script>
+    (function(){
+      const form=document.getElementById("callbackForm"),btn=document.getElementById("callbackSubmit"),status=document.getElementById("callbackStatus");
+      if(!form)return;
+      form.addEventListener("submit",async e=>{
+        e.preventDefault();status.classList.remove("hidden");status.textContent="Sending…";btn.disabled=true;btn.style.opacity="0.6";
+        try{const res=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+          if(res.ok){form.reset();status.textContent="Thanks — we will call you back shortly.";setTimeout(()=>closeCallback(),900);}
+          else{status.textContent="Sorry — something went wrong. Please try again.";}
+        }catch{status.textContent="Sorry — something went wrong. Please try again.";}
+        finally{btn.disabled=false;btn.style.opacity="";if(window.feather)feather.replace();}
       });
     })();
   </script>
