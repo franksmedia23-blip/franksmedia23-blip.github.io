@@ -2,21 +2,13 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- ✅ iOS safe-area / white status bar -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-  <!-- ✅ SEO -->
   <title>Terms of Use | T1 Asset Management Leeds</title>
   <meta name="description" content="Read the T1 Asset Management Terms of Use. Website usage rules, disclaimers, intellectual property, liability, governing law, and contact details." />
   <meta name="robots" content="index,follow" />
-
-  <!-- ✅ Canonical -->
   <link rel="canonical" href="https://t1assetmanagement.co.uk/terms-of-service.html" />
-
-  <!-- ✅ Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="T1 Asset Management" />
   <meta property="og:title" content="Terms of Use | T1 Asset Management Leeds" />
@@ -24,382 +16,332 @@
   <meta property="og:url" content="https://t1assetmanagement.co.uk/terms-of-service.html" />
   <meta property="og:image" content="https://image2url.com/r2/default/images/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- ✅ Favicons (ROOT SITE) -->
   <link rel="icon" href="/favicon-files/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-files/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-files/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-files/apple-touch-icon.png">
   <link rel="manifest" href="/favicon-files/site.webmanifest">
   <meta name="theme-color" content="#FFFFFF">
-
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Feather Icons -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#0B1220; --line:#E5E7EB; --muted:#6B7280; --paper:#FAFAFA; --white:#ffffff; --black:#000000; }
     html { scroll-behavior: smooth; }
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
-    }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    body::before { content:""; position:fixed; top:0; left:0; right:0; height:env(safe-area-inset-top); background:var(--white); z-index:1000; pointer-events:none; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    button { font-family:inherit; cursor:pointer; background:none; border:none; }
+    ul { list-style:none; }
 
-    /* ✅ Ensure top safe-area is white on iOS notch devices */
-    body::before{
-      content:"";
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: env(safe-area-inset-top);
-      background: #fff;
-      z-index: 1000;
-      pointer-events: none;
-    }
+    .container { max-width:80rem; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem; }
 
-    .sq { border-radius: 0 !important; }
+    .hidden { display:none !important; }
+    .no-scroll { overflow:hidden; }
+    .overflow-hidden { overflow:hidden; }
+    .reveal { opacity:0; transform:translateY(10px); transition:opacity 700ms ease, transform 700ms ease; will-change:opacity,transform; }
+    .reveal.is-visible { opacity:1; transform:translateY(0); }
 
-    .reveal{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity 700ms ease, transform 700ms ease;
-      will-change:opacity, transform;
-    }
-    .reveal.is-visible{ opacity:1; transform:translateY(0); }
+    /* ── Header ── */
+    .site-header { position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid rgba(0,0,0,0.05); }
+    .header-inner { height:72px; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo img { height:2.5rem; width:auto; }
+    .nav-desktop { display:none; align-items:center; gap:2.5rem; font-size:13px; letter-spacing:0.025em; }
+    .nav-desktop a { color:rgba(11,18,32,0.80); transition:color 150ms ease; }
+    .nav-desktop a:hover { color:var(--ink); }
+    .nav-dd { position:relative; }
+    .nav-dd-btn { display:inline-flex; align-items:center; gap:0.5rem; font-size:13px; color:rgba(11,18,32,0.80); transition:color 150ms ease; cursor:pointer; font-family:inherit; letter-spacing:0.025em; }
+    .nav-dd-btn:hover { color:var(--ink); }
+    .nav-dd-panel { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:260px; background:var(--white); border:1px solid rgba(2,6,23,.10); box-shadow:0 10px 24px rgba(2,6,23,0.08); z-index:80; opacity:0; pointer-events:none; transition:opacity 140ms ease, transform 140ms ease; border-radius:0; }
+    .nav-dd-panel.open { opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .nav-dd-panel a { display:block; padding:0.75rem 1rem; font-size:0.875rem; color:var(--ink); transition:background 150ms ease; }
+    .nav-dd-panel a:hover { background:#F9FAFB; }
+    .nav-dd::after { content:""; position:absolute; left:-12px; right:-12px; top:100%; height:18px; }
+    .header-actions { display:flex; align-items:center; gap:0.75rem; }
+    .btn-enquiry { display:none; padding:0.625rem 1.25rem; border:1px solid var(--line); font-size:13px; font-weight:500; background:var(--white); color:var(--ink); border-radius:0; transition:background 150ms ease; cursor:pointer; text-decoration:none; }
+    .btn-enquiry:hover { background:#F9FAFB; }
+    .btn-callback-nav { display:none; padding:0.625rem 1.25rem; background:var(--ink); color:var(--white); font-size:13px; font-weight:600; border:none; border-radius:0; cursor:pointer; transition:background 150ms ease; }
+    .btn-callback-nav:hover { background:var(--black); }
+    .btn-menu { display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; border:1px solid var(--line); border-radius:0; background:var(--white); cursor:pointer; transition:background 150ms ease; }
+    .btn-menu:hover { background:#F9FAFB; }
+    .icon { width:1.25rem; height:1.25rem; flex-shrink:0; }
+    .icon-sm { width:1rem; height:1rem; }
 
-    /* Mobile menu overlay */
-    .menu-backdrop{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.35);
-      opacity: 0; pointer-events: none;
-      transition: opacity 180ms ease;
-      z-index: 60;
-    }
-    .menu-backdrop.open{ opacity: 1; pointer-events: auto; }
+    /* ── Mobile menu ── */
+    .menu-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); opacity:0; pointer-events:none; transition:opacity 180ms ease; z-index:60; }
+    .menu-backdrop.open { opacity:1; pointer-events:auto; }
+    .menu-drawer { position:fixed; top:72px; left:0; right:0; background:var(--white); border-top:1px solid var(--line); transform:translateY(-10px); opacity:0; pointer-events:none; transition:opacity 180ms ease, transform 180ms ease; z-index:70; }
+    .menu-drawer.open { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .mobile-nav { display:flex; flex-direction:column; font-size:0.875rem; }
+    .mobile-nav a, .mobile-nav button { display:block; padding:0.75rem 0.5rem; color:var(--ink); text-align:left; transition:background 150ms ease; width:100%; border-radius:0; }
+    .mobile-nav a:hover, .mobile-nav button:hover { background:#F9FAFB; }
+    .btn-callback-mobile { margin-top:0.75rem; background:var(--ink); color:var(--white); font-weight:600; padding:0.75rem 1rem; font-size:0.875rem; }
+    .btn-callback-mobile:hover { background:var(--black); }
 
-    .menu-drawer{
-      position: fixed;
-      top: 72px;
-      left: 0; right: 0;
-      background: #fff;
-      border-top: 1px solid #E5E7EB;
-      transform: translateY(-10px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-      z-index: 70;
-    }
-    .menu-drawer.open{
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .no-scroll { overflow: hidden; }
+    /* ── Page header ── */
+    .page-header { padding-top:4rem; padding-bottom:4rem; }
+    .page-header-inner { max-width:48rem; }
+    .page-eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+    .page-h1 { margin-top:1rem; font-size:clamp(2rem,5vw,3rem); font-weight:600; letter-spacing:-0.02em; line-height:1.1; }
+    .effective-date { margin-top:1.5rem; border:1px solid var(--line); background:var(--paper); padding:1rem 1.25rem; font-size:0.875rem; color:var(--muted); border-radius:0; }
+    .effective-date strong { font-weight:500; color:var(--ink); }
 
-    .hairline{ height:1px; background: rgba(2,6,23,.08); }
-    .prose a{ text-decoration: underline; text-underline-offset: 4px; }
+    /* ── Content layout ── */
+    .content-section { padding-bottom:4rem; }
+    .content-grid { display:grid; gap:2.5rem; }
 
-    /* ✅ Desktop dropdown */
-    .nav-dd{ position: relative; }
-    .nav-dd-panel{
-      position: absolute;
-      top: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: 260px;
-      background: #fff;
-      border: 1px solid rgba(2,6,23,.10);
-      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
-      z-index: 80;
-      opacity: 0;
-      transform: translateX(-50%) translateY(-6px);
-      pointer-events: none;
-      transition: opacity 140ms ease, transform 140ms ease;
+    /* ── Article / prose ── */
+    .prose-card { border:1px solid var(--line); background:var(--white); padding:2rem; border-radius:0; }
+    .prose-card p { color:var(--muted); line-height:1.625; }
+    .prose-card h2 { margin-top:0; font-size:1.5rem; font-weight:600; letter-spacing:-0.02em; }
+    .prose-card h2 + p,
+    .prose-card h2 + ul { margin-top:0.75rem; }
+    .prose-card p + p { margin-top:0.75rem; }
+    .prose-card ul { list-style:disc; padding-left:1.5rem; display:flex; flex-direction:column; gap:0.5rem; color:var(--muted); }
+    .prose-card a { font-weight:600; color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+    .hairline { height:1px; background:rgba(2,6,23,.08); margin-top:2rem; margin-bottom:2rem; }
+
+    /* ── Sidebar ── */
+    .sidebar-card { border:1px solid var(--line); background:var(--paper); padding:1.75rem; border-radius:0; }
+    .sidebar-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+    .sidebar-contacts { margin-top:1.25rem; display:flex; flex-direction:column; gap:1rem; }
+    .sidebar-contact-item { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.875rem; }
+    .icon-box-dark { flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; background:var(--ink); color:var(--white); border-radius:0; }
+    .sidebar-contact-item p { color:var(--muted); line-height:1.5; }
+    .sidebar-contact-item .name { font-weight:600; color:var(--ink); }
+    .sidebar-contact-item a { display:inline-block; margin-top:0.25rem; font-weight:600; color:var(--ink); word-break:break-all; }
+    .sidebar-contact-item a:hover { text-decoration:underline; text-underline-offset:4px; }
+    .company-reg { margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--line); font-size:0.75rem; color:var(--muted); line-height:1.6; }
+    .sidebar-actions { margin-top:1.75rem; display:flex; flex-direction:column; gap:0.75rem; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; border-radius:0; font-size:0.875rem; font-weight:600; padding:0.75rem 1.25rem; transition:background-color 150ms ease, color 150ms ease; cursor:pointer; text-decoration:none; gap:0.5rem; }
+    .btn-primary { background:var(--ink); color:var(--white); border:1px solid var(--ink); }
+    .btn-primary:hover { background:var(--black); border-color:var(--black); }
+    .btn-outline { background:transparent; color:var(--ink); border:1px solid var(--line); }
+    .btn-outline:hover { background:#F9FAFB; }
+
+    /* ── Footer ── */
+    .site-footer { background:var(--black); color:var(--white); }
+    .footer-inner { padding-top:3.5rem; padding-bottom:3.5rem; }
+    .footer-grid { display:grid; gap:2.5rem; }
+    .footer-brand img { height:2.5rem; width:auto; }
+    .footer-brand p { margin-top:1rem; font-size:0.875rem; color:rgba(255,255,255,0.70); line-height:1.625; max-width:24rem; }
+    .footer-rics-wrap { margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.10); }
+    .footer-rics-wrap img { height:2.5rem; width:auto; opacity:0.90; }
+    .footer-col-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:rgba(255,255,255,0.60); }
+    .footer-col ul { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem; }
+    .footer-col ul a, .footer-col ul button { color:rgba(255,255,255,0.80); text-align:left; font-family:inherit; font-size:0.875rem; cursor:pointer; transition:color 150ms ease; padding:0; }
+    .footer-col ul a:hover, .footer-col ul button:hover { color:var(--white); }
+    .footer-office { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem; color:rgba(255,255,255,0.70); }
+    .footer-bottom { margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.15); display:flex; flex-direction:column; gap:1rem; }
+    .footer-bottom p { font-size:0.875rem; color:rgba(255,255,255,0.60); }
+    .footer-bottom-right { display:flex; gap:1.5rem; font-size:0.875rem; align-items:center; flex-wrap:wrap; }
+    .footer-bottom-right span { color:rgba(255,255,255,0.60); }
+    .footer-bottom-right a { color:rgba(255,255,255,0.80); text-decoration:underline; text-underline-offset:4px; transition:color 150ms ease; }
+    .footer-bottom-right a:hover { color:var(--white); }
+
+    /* ── Modal ── */
+    .modal-overlay { position:fixed; inset:0; z-index:80; }
+    .modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.60); }
+    .modal-center { position:relative; height:100%; display:flex; align-items:center; justify-content:center; padding:1rem; }
+    .modal-box { width:100%; max-width:32rem; background:var(--white); border:1px solid var(--line); box-shadow:0 10px 20px rgba(2,6,23,0.10); border-radius:0; }
+    .modal-header { padding:1.5rem; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+    .modal-label { font-size:11px; text-transform:uppercase; letter-spacing:0.28em; color:var(--muted); }
+    .modal-header h3 { margin-top:0.25rem; font-size:1.125rem; font-weight:600; }
+    .modal-close { padding:0.5rem; border:1px solid var(--line); background:var(--white); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; border-radius:0; transition:background 150ms ease; }
+    .modal-close:hover { background:#F9FAFB; }
+    .modal-body { padding:1.5rem; }
+    .modal-body > p { font-size:0.875rem; color:var(--muted); line-height:1.625; }
+    .modal-form { margin-top:1.25rem; display:flex; flex-direction:column; gap:1rem; }
+    .form-field { display:flex; flex-direction:column; }
+    .form-field label { font-size:0.875rem; font-weight:500; color:var(--ink); }
+    .f-in { margin-top:0.5rem; width:100%; padding:0.75rem 1rem; font-size:0.875rem; font-family:inherit; border:1px solid rgba(2,6,23,.12); border-radius:0; background:var(--white); color:var(--ink); transition:box-shadow 200ms ease, border-color 200ms ease; outline:none; }
+    .f-in:focus { border-color:rgba(2,6,23,.55); box-shadow:0 0 0 4px rgba(2,6,23,.08); }
+    #callbackStatus { font-size:0.75rem; color:var(--muted); line-height:1.5; }
+
+    /* ── Responsive ── */
+    @media (min-width:640px) {
+      .container { padding-left:2.5rem; padding-right:2.5rem; }
+      .btn-enquiry { display:inline-flex; }
+      .btn-callback-nav { display:inline-flex; }
+      .prose-card { padding:2.5rem; }
     }
-    .nav-dd-panel.open{
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
+    @media (min-width:768px) {
+      .page-header { padding-top:5rem; padding-bottom:5rem; }
+      .content-section { padding-bottom:5rem; }
+      .footer-grid { grid-template-columns:repeat(4,1fr); }
+      .footer-bottom { flex-direction:row; align-items:center; justify-content:space-between; }
     }
-    .nav-dd::after{
-      content:"";
-      position:absolute;
-      left:-12px; right:-12px;
-      top:100%;
-      height:18px;
+    @media (min-width:1024px) {
+      .container { padding-left:6rem; padding-right:6rem; }
+      .nav-desktop { display:flex; }
+      .btn-menu { display:none; }
+      .content-grid { grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; }
+      .prose-col { grid-column: span 8; }
+      .aside-col  { grid-column: span 4; }
     }
   </style>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: "#0B1220",
-            muted: "#6B7280",
-            paper: "#FAFAFA",
-            line: "#E5E7EB"
-          },
-          boxShadow: {
-            soft: "0 10px 24px rgba(2, 6, 23, 0.08)",
-            crisp: "0 10px 20px rgba(2, 6, 23, 0.10)"
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
-<body class="bg-white text-ink antialiased">
+<body>
 
-  <!-- ✅ NAV (ROOT SITE) -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-      <div class="h-[72px] flex items-center justify-between">
-        <a href="/index.html" class="flex items-center" aria-label="T1 Asset Management home">
-          <img
-            src="https://image2url.com/r2/default/images/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png"
-            alt="T1 Asset Management"
-            class="h-10 w-auto"
-            loading="eager"
-            decoding="async"
-          />
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/index.html" class="nav-logo" aria-label="T1 Asset Management home">
+          <img src="https://images.squarespace-cdn.com/content/v1/6960e9d0f0f61a3bd50e138f/2e919fa3-dcd8-4fe7-ada5-93ada62a980d/1769712235293-23883a5d-b00b-4d78-a5ae-45edd6e11829.png?format=2500w" alt="T1 Asset Management" loading="eager" decoding="async" />
         </a>
-
-        <nav class="hidden md:flex items-center gap-10 text-[13px] tracking-wide" aria-label="Primary navigation">
-          <a href="/index.html" class="text-ink/80 hover:text-ink transition">Home</a>
-
+        <nav class="nav-desktop" aria-label="Primary navigation">
+          <a href="/index.html">Home</a>
           <div class="nav-dd">
-            <button
-              type="button"
-              id="rentBtn"
-              class="inline-flex items-center gap-2 text-ink/80 hover:text-ink transition"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="rentMenu"
-            >
-              Rent Reviews <i data-feather="chevron-down" class="w-4 h-4"></i>
+            <button type="button" id="rentBtn" class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" aria-controls="rentMenu">
+              Rent Reviews <i data-feather="chevron-down" class="icon icon-sm"></i>
             </button>
-
-            <div id="rentMenu" class="nav-dd-panel sq" role="menu" aria-label="Rent Reviews submenu">
-              <a href="/rent-reviews-tenants.html" class="block px-4 py-3 text-sm hover:bg-gray-50" role="menuitem">Tenants</a>
-              <a href="/rent-reviews-landlords.html" class="block px-4 py-3 text-sm hover:bg-gray-50" role="menuitem">Landlords</a>
+            <div id="rentMenu" class="nav-dd-panel" role="menu">
+              <a href="/rent-reviews-tenants.html" role="menuitem">Tenants</a>
+              <a href="/rent-reviews-landlords.html" role="menuitem">Landlords</a>
             </div>
           </div>
-
-          <a href="/professional-services.html" class="text-ink/80 hover:text-ink transition">Other Services</a>
-          <a href="/contact.html" class="text-ink/80 hover:text-ink transition">Contact</a>
+          <a href="/professional-services.html">Other Services</a>
+          <a href="/contact.html">Contact</a>
         </nav>
-
-        <div class="flex items-center gap-3">
-          <a href="/contact.html#form" class="hidden sm:inline-flex px-5 py-[10px] sq border border-line text-[13px] font-medium hover:bg-gray-50 transition">
-            Enquiry
-          </a>
-
-          <button type="button" data-open-callback class="hidden sm:inline-flex px-5 py-[10px] sq bg-ink text-white text-[13px] font-semibold hover:bg-black transition">
-            Request a call back
-          </button>
-
-          <button
-            type="button"
-            id="menuBtn"
-            class="md:hidden inline-flex items-center justify-center w-10 h-10 sq border border-line hover:bg-gray-50 transition"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            <i data-feather="menu" class="w-5 h-5"></i>
+        <div class="header-actions">
+          <a href="/contact.html#form" class="btn-enquiry">Enquiry</a>
+          <button type="button" data-open-callback class="btn-callback-nav">Request a call back</button>
+          <button type="button" id="menuBtn" class="btn-menu" aria-label="Open menu" aria-expanded="false">
+            <i data-feather="menu" class="icon"></i>
           </button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Mobile menu overlay -->
-  <div id="menuBackdrop" class="menu-backdrop md:hidden" aria-hidden="true"></div>
-
-  <!-- ✅ Mobile menu -->
-  <div id="menuDrawer" class="menu-drawer md:hidden" role="dialog" aria-modal="true" aria-label="Mobile menu">
-    <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24 py-4">
-      <nav class="flex flex-col text-sm" aria-label="Mobile navigation">
-        <a href="/index.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Home</a>
-        <a href="/rent-reviews-tenants.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Rent Reviews — Tenants</a>
-        <a href="/rent-reviews-landlords.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Rent Reviews — Landlords</a>
-        <a href="/professional-services.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Other Services</a>
-        <a href="/contact.html" class="px-2 py-3 hover:bg-gray-50" data-close-menu>Contact</a>
-
-        <button type="button" data-open-callback data-close-menu class="mt-3 w-full sq bg-ink text-white font-semibold px-4 py-3 text-left hover:bg-black transition">
-          Request a call back
-        </button>
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+  <div id="menuDrawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="container" style="padding-top:1rem;padding-bottom:1rem;">
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="/index.html" data-close-menu>Home</a>
+        <a href="/rent-reviews-tenants.html" data-close-menu>Rent Reviews — Tenants</a>
+        <a href="/rent-reviews-landlords.html" data-close-menu>Rent Reviews — Landlords</a>
+        <a href="/professional-services.html" data-close-menu>Other Services</a>
+        <a href="/contact.html" data-close-menu>Contact</a>
+        <button type="button" data-open-callback data-close-menu class="btn-callback-mobile">Request a call back</button>
       </nav>
     </div>
   </div>
 
   <main>
 
-    <!-- HEADER -->
-    <section class="py-16 md:py-20">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-        <div class="max-w-3xl reveal">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-muted">T1 Asset Management, Leeds</p>
-          <h1 class="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">Terms of Use</h1>
-
-          <div class="mt-6 sq border border-line bg-paper px-5 py-4 text-sm text-muted">
-            <span class="font-medium text-ink">Effective Date:</span> February 15th, 2025
-          </div>
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-inner reveal">
+          <p class="page-eyebrow">T1 Asset Management, Leeds</p>
+          <h1 class="page-h1">Terms of Use</h1>
+          <div class="effective-date"><strong>Effective Date:</strong> February 15th, 2025</div>
         </div>
       </div>
     </section>
 
-    <!-- CONTENT -->
-    <section class="pb-16 md:pb-20">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24">
-        <div class="grid lg:grid-cols-12 gap-10">
+    <section class="content-section">
+      <div class="container">
+        <div class="content-grid">
 
-          <article class="lg:col-span-8 sq border border-line bg-white p-8 sm:p-10 reveal">
-            <div class="prose max-w-none">
-              <p class="text-muted leading-relaxed">
-                Welcome to T1 Asset Management ("we," "us," or "our"). By accessing or using our website, you agree to
-                the following Terms of Use. If you do not agree, please do not use the website.
-              </p>
+          <article class="prose-card prose-col reveal">
+            <p>Welcome to T1 Asset Management ("we," "us," or "our"). By accessing or using our website, you agree to the following Terms of Use. If you do not agree, please do not use the website.</p>
 
-              <div class="my-8 hairline"></div>
+            <div class="hairline"></div>
+            <h2>1. Use of the Website</h2>
+            <ul>
+              <li>You may use this website for lawful purposes only.</li>
+              <li>You agree not to use the website in any way that is fraudulent, harmful, or in violation of any laws.</li>
+              <li>We reserve the right to restrict or terminate access if any misuse is detected.</li>
+            </ul>
 
-              <h2 class="text-2xl font-semibold">1. Use of the Website</h2>
-              <ul class="mt-4 list-disc pl-6 text-muted space-y-2">
-                <li>You may use this website for lawful purposes only.</li>
-                <li>You agree not to use the website in any way that is fraudulent, harmful, or in violation of any laws.</li>
-                <li>We reserve the right to restrict or terminate access if any misuse is detected.</li>
-              </ul>
+            <div class="hairline"></div>
+            <h2>2. Information Disclaimer</h2>
+            <ul>
+              <li>The content on this website is for informational purposes only and does not constitute financial or legal advice.</li>
+              <li>We make every effort to ensure accuracy, but we do not guarantee that all information is up-to-date or error-free.</li>
+            </ul>
 
-              <div class="my-8 hairline"></div>
+            <div class="hairline"></div>
+            <h2>3. Intellectual Property</h2>
+            <ul>
+              <li>Content, including text and logos, is the property of T1 Asset Management unless otherwise stated.</li>
+              <li>You may not copy, reproduce, or distribute any content without permission.</li>
+            </ul>
 
-              <h2 class="text-2xl font-semibold">2. Information Disclaimer</h2>
-              <ul class="mt-4 list-disc pl-6 text-muted space-y-2">
-                <li>The content on this website is for informational purposes only and does not constitute financial or legal advice.</li>
-                <li>We make every effort to ensure accuracy, but we do not guarantee that all information is up-to-date or error-free.</li>
-              </ul>
+            <div class="hairline"></div>
+            <h2>4. User-Submitted Information</h2>
+            <ul>
+              <li>If you submit information (e.g., contact forms), you confirm that the details provided are accurate and do not infringe on any third-party rights.</li>
+              <li>By submitting messages, you grant us permission to use the information for responding to inquiries, analytics, and marketing purposes.</li>
+            </ul>
 
-              <div class="my-8 hairline"></div>
+            <div class="hairline"></div>
+            <h2>5. Privacy &amp; Data Protection</h2>
+            <p>We collect and process personal data in accordance with our Privacy Policy. By using this site, you agree to the terms outlined in our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
 
-              <h2 class="text-2xl font-semibold">3. Intellectual Property</h2>
-              <ul class="mt-4 list-disc pl-6 text-muted space-y-2">
-                <li>Content, including text and logos, is the property of T1 Asset Management unless otherwise stated.</li>
-                <li>You may not copy, reproduce, or distribute any content without permission.</li>
-              </ul>
+            <div class="hairline"></div>
+            <h2>6. Third-Party Links</h2>
+            <p>Our website may contain links to third-party sites. We are not responsible for their content or privacy practices.</p>
 
-              <div class="my-8 hairline"></div>
+            <div class="hairline"></div>
+            <h2>7. Limitation of Liability</h2>
+            <ul>
+              <li>We are not liable for any losses, damages, or disruptions resulting from the use of this website.</li>
+              <li>Your use of the website is at your own risk.</li>
+            </ul>
 
-              <h2 class="text-2xl font-semibold">4. User-Submitted Information</h2>
-              <ul class="mt-4 list-disc pl-6 text-muted space-y-2">
-                <li>If you submit information (e.g., contact forms), you confirm that the details provided are accurate and do not infringe on any third-party rights.</li>
-                <li>By submitting messages, you grant us permission to use the information for responding to inquiries, analytics, and marketing purposes.</li>
-              </ul>
+            <div class="hairline"></div>
+            <h2>8. Changes to These Terms</h2>
+            <p>We reserve the right to update these terms at any time. Continued use of the website after changes means you accept the revised terms.</p>
 
-              <div class="my-8 hairline"></div>
+            <div class="hairline"></div>
+            <h2>9. Governing Law</h2>
+            <p>These terms are governed by UK law. Any disputes shall be subject to the jurisdiction of the courts in England and Wales.</p>
 
-              <h2 class="text-2xl font-semibold">5. Privacy &amp; Data Protection</h2>
-              <p class="mt-4 text-muted leading-relaxed">
-                We collect and process personal data in accordance with our Privacy Policy. By using this site, you agree to the
-                terms outlined in our <a href="/privacy-policy.html" class="font-medium text-ink">Privacy Policy</a>.
-              </p>
-
-              <div class="my-8 hairline"></div>
-
-              <h2 class="text-2xl font-semibold">6. Third-Party Links</h2>
-              <p class="mt-4 text-muted leading-relaxed">
-                Our website may contain links to third-party sites. We are not responsible for their content or privacy practices.
-              </p>
-
-              <div class="my-8 hairline"></div>
-
-              <h2 class="text-2xl font-semibold">7. Limitation of Liability</h2>
-              <ul class="mt-4 list-disc pl-6 text-muted space-y-2">
-                <li>We are not liable for any losses, damages, or disruptions resulting from the use of this website.</li>
-                <li>Your use of the website is at your own risk.</li>
-              </ul>
-
-              <div class="my-8 hairline"></div>
-
-              <h2 class="text-2xl font-semibold">8. Changes to These Terms</h2>
-              <p class="mt-4 text-muted leading-relaxed">
-                We reserve the right to update these terms at any time. Continued use of the website after changes means you
-                accept the revised terms.
-              </p>
-
-              <div class="my-8 hairline"></div>
-
-              <h2 class="text-2xl font-semibold">9. Governing Law</h2>
-              <p class="mt-4 text-muted leading-relaxed">
-                These terms are governed by UK law. Any disputes shall be subject to the jurisdiction of the courts in England and Wales.
-              </p>
-
-              <div class="my-8 hairline"></div>
-
-              <h2 class="text-2xl font-semibold">10. Contact Us</h2>
-              <p class="mt-4 text-muted leading-relaxed">
-                For any questions regarding these Terms of Use, please contact:
-                <a href="mailto:rob@t1assetmanagement.co.uk" class="font-medium text-ink">rob@t1assetmanagement.co.uk</a>
-              </p>
-            </div>
+            <div class="hairline"></div>
+            <h2>10. Contact Us</h2>
+            <p>For any questions regarding these Terms of Use, please contact: <a href="mailto:rob@t1assetmanagement.co.uk">rob@t1assetmanagement.co.uk</a></p>
           </article>
 
-          <aside class="lg:col-span-4 reveal">
-            <div class="sq border border-line bg-paper p-7">
-              <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Contact details</p>
-
-              <div class="mt-5 space-y-4 text-sm">
-                <div class="flex items-start gap-3">
-                  <span class="inline-flex items-center justify-center w-10 h-10 sq bg-ink text-white shrink-0">
-                    <i data-feather="map-pin" class="w-5 h-5"></i>
-                  </span>
-                  <div class="text-muted leading-relaxed">
-                    <p class="font-semibold text-ink">T1 Asset Management</p>
-                    <p class="mt-1">Unit 19 Holly Park Mills</p>
-                    <p>Calverley</p>
-                    <p>Leeds</p>
-                    <p>LS28 5QS</p>
+          <aside class="aside-col reveal">
+            <div class="sidebar-card">
+              <p class="sidebar-label">Contact details</p>
+              <div class="sidebar-contacts">
+                <div class="sidebar-contact-item">
+                  <span class="icon-box-dark"><i data-feather="map-pin" class="icon"></i></span>
+                  <div>
+                    <p class="name">T1 Asset Management</p>
+                    <p>Unit 19 Holly Park Mills<br>Calverley<br>Leeds<br>LS28 5QS</p>
                   </div>
                 </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="inline-flex items-center justify-center w-10 h-10 sq bg-ink text-white shrink-0">
-                    <i data-feather="phone" class="w-5 h-5"></i>
-                  </span>
-                  <div class="text-muted leading-relaxed">
-                    <p class="font-semibold text-ink">Telephone</p>
-                    <a href="tel:07912222905" class="mt-1 inline-block font-semibold text-ink hover:underline underline-offset-4">
-                      0791 2222 905
-                    </a>
+                <div class="sidebar-contact-item">
+                  <span class="icon-box-dark"><i data-feather="phone" class="icon"></i></span>
+                  <div>
+                    <p class="name">Telephone</p>
+                    <a href="tel:07912222905">0791 2222 905</a>
                   </div>
                 </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="inline-flex items-center justify-center w-10 h-10 sq bg-ink text-white shrink-0">
-                    <i data-feather="mail" class="w-5 h-5"></i>
-                  </span>
-                  <div class="text-muted leading-relaxed">
-                    <p class="font-semibold text-ink">Email</p>
-                    <a href="mailto:rob@t1assetmanagement.co.uk" class="mt-1 inline-block font-semibold text-ink hover:underline underline-offset-4 break-all">
-                      rob@t1assetmanagement.co.uk
-                    </a>
+                <div class="sidebar-contact-item">
+                  <span class="icon-box-dark"><i data-feather="mail" class="icon"></i></span>
+                  <div>
+                    <p class="name">Email</p>
+                    <a href="mailto:rob@t1assetmanagement.co.uk">rob@t1assetmanagement.co.uk</a>
                   </div>
                 </div>
               </div>
-
-              <div class="mt-7 flex flex-col gap-3">
-                <a href="/contact.html#form" class="inline-flex items-center justify-center px-5 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-                  Send an enquiry <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                </a>
-                <button type="button" data-open-callback class="inline-flex items-center justify-center px-5 py-3 sq border border-line text-sm font-semibold hover:bg-white/60 transition">
-                  Request a call back
-                </button>
-                <a href="/privacy-policy.html" class="inline-flex items-center justify-center px-5 py-3 sq border border-line text-sm font-semibold hover:bg-white/60 transition">
-                  Privacy Policy
-                </a>
+              <div class="sidebar-actions">
+                <a href="/contact.html#form" class="btn btn-primary">Send an enquiry <i data-feather="arrow-right" class="icon icon-sm"></i></a>
+                <button type="button" data-open-callback class="btn btn-outline">Request a call back</button>
+                <a href="/privacy-policy.html" class="btn btn-outline">Privacy Policy</a>
+              </div>
+              <div class="company-reg">
+                <p>T1 Asset Management Limited</p>
+                <p>Company number 09363640</p>
               </div>
             </div>
           </aside>
@@ -408,54 +350,44 @@
       </div>
     </section>
 
-    <!-- ✅ FOOTER (ROOT SITE) -->
-    <footer class="bg-black text-white">
-      <div class="max-w-7xl mx-auto px-4 md:px-10 lg:px-24 py-14">
-        <div class="grid md:grid-cols-4 gap-10 reveal">
-          <div>
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/601fd0787b0ff91513ebe340/a4fbaec7-8c0d-427b-9f85-bc15ee43844e/Monochrome+on+Transparent.png?format=1500w"
-              alt="T1 Asset Management"
-              class="h-10 w-auto"
-              loading="lazy"
-              decoding="async"
-            />
-            <p class="mt-4 text-sm text-white/70 leading-relaxed max-w-sm">
-              Independent commercial property advice across Leeds, Yorkshire and the UK.
-            </p>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-grid reveal">
+          <div class="footer-brand">
+            <img src="https://images.squarespace-cdn.com/content/v1/601fd0787b0ff91513ebe340/a4fbaec7-8c0d-427b-9f85-bc15ee43844e/Monochrome+on+Transparent.png?format=1500w" alt="T1 Asset Management" loading="lazy" decoding="async" />
+            <p>Specialist commercial rent review and lease advisory support across Leeds, Yorkshire and the UK.</p>
+            <div class="footer-rics-wrap">
+              <img src="https://raw.githubusercontent.com/franksmedia23-blip/franksmedia23-blip.github.io/refs/heads/main/Regulated_by_RICS_Logo-White.png" alt="Regulated by RICS" loading="lazy" decoding="async" />
+            </div>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Services</p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><a class="text-white/80 hover:text-white transition" href="/professional-services.html">Professional Services</a></li>
-              <li><a class="text-white/80 hover:text-white transition" href="/contact.html">Contact</a></li>
-              <li><button data-open-callback class="text-left text-white/80 hover:text-white transition">Request a call back</button></li>
+          <div class="footer-col">
+            <p class="footer-col-label">Services</p>
+            <ul>
+              <li><a href="/professional-services.html">Professional Services</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><button type="button" data-open-callback>Request a call back</button></li>
             </ul>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Office</p>
-            <div class="mt-4 space-y-2 text-sm text-white/70">
+          <div class="footer-col">
+            <p class="footer-col-label">Office</p>
+            <div class="footer-office">
               <p>Unit 19 Holly Park Mills</p><p>Calverley</p><p>Leeds</p><p>LS28 5QS</p>
             </div>
           </div>
-
-          <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-white/60">Legal</p>
-            <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="/privacy-policy.html" class="text-white/80 hover:text-white transition">Privacy Policy</a></li>
-              <li><a href="/terms-of-service.html" class="text-white/80 hover:text-white transition">Terms of use</a></li>
+          <div class="footer-col">
+            <p class="footer-col-label">Legal</p>
+            <ul>
+              <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="/terms-of-service.html">Terms of use</a></li>
+              <li><a href="https://franksmedia23-blip.github.io/T1_Complaints_Procedure.pdf" target="_blank" rel="noopener noreferrer">Complaints Procedure</a></li>
             </ul>
           </div>
         </div>
-
-        <div class="mt-12 pt-8 border-t border-white/15 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between reveal">
-          <p class="text-sm text-white/60">© <span id="year"></span> T1 Asset Management. All rights reserved.</p>
-          <div class="flex gap-6 text-sm">
-            <span class="text-white/60">Website design by</span>
-            <a href="http://franks-media.co.uk" target="_blank" rel="noopener noreferrer"
-               class="text-white/80 hover:text-white transition underline underline-offset-4">Franks Media</a>
+        <div class="footer-bottom reveal">
+          <p>© <span id="year"></span> T1 Asset Management. All rights reserved.</p>
+          <div class="footer-bottom-right">
+            <span>Website design by</span>
+            <a href="http://franks-media.co.uk" target="_blank" rel="noopener noreferrer">Franks Media</a>
           </div>
         </div>
       </div>
@@ -463,51 +395,34 @@
 
   </main>
 
-  <!-- CALLBACK MODAL -->
-  <div id="callbackModal" class="fixed inset-0 z-[80] hidden">
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="relative h-full flex items-center justify-center p-4">
-      <div class="sq w-full max-w-lg bg-white border border-line shadow-crisp">
-        <div class="p-6 border-b border-line flex items-center justify-between">
+  <div id="callbackModal" class="modal-overlay hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-center">
+      <div class="modal-box">
+        <div class="modal-header">
           <div>
-            <p class="text-[11px] uppercase tracking-[0.28em] text-muted">Request a call back</p>
-            <h3 class="mt-1 text-lg font-semibold">No obligation chat</h3>
+            <p class="modal-label">Request a call back</p>
+            <h3>No obligation chat</h3>
           </div>
-          <button type="button" data-close-callback class="p-2 sq border border-line hover:bg-gray-50 transition" aria-label="Close">
-            <i data-feather="x" class="w-5 h-5"></i>
-          </button>
+          <button type="button" data-close-callback class="modal-close" aria-label="Close"><i data-feather="x" class="icon"></i></button>
         </div>
-
-        <div class="p-6">
-          <p class="text-sm text-muted leading-relaxed">
-            Leave your name and number and we’ll call you to discuss how we can help.
-          </p>
-
-          <form id="callbackForm" action="https://formspree.io/f/xgoleoed" method="POST" class="mt-5 space-y-4">
+        <div class="modal-body">
+          <p>Leave your name and number and we'll call you to discuss how we can help.</p>
+          <form id="callbackForm" action="https://formspree.io/f/xgoleoed" method="POST" class="modal-form">
             <input type="hidden" name="_subject" value="Callback request — T1 Asset Management" />
             <input type="hidden" name="form_type" value="callback_request" />
-            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
-
-            <div>
-              <label class="block text-sm font-medium">Name</label>
-              <input type="text" name="name" required class="mt-2 w-full sq px-4 py-3 text-sm border border-line focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink" placeholder="Your name" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-field">
+              <label>Name</label>
+              <input type="text" name="name" required class="f-in" placeholder="Your name" />
             </div>
-
-            <div>
-              <label class="block text-sm font-medium">Phone number</label>
-              <input type="tel" name="phone" required class="mt-2 w-full sq px-4 py-3 text-sm border border-line focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink" placeholder="07..." />
+            <div class="form-field">
+              <label>Phone number</label>
+              <input type="tel" name="phone" required class="f-in" placeholder="07..." />
             </div>
-
-            <button type="submit" id="callbackSubmit" class="w-full inline-flex items-center justify-center px-6 py-3 sq bg-ink text-white text-sm font-semibold hover:bg-black transition">
-              Call me back <i data-feather="phone-call" class="ml-2 w-4 h-4"></i>
-            </button>
-
-            <button type="button" data-close-callback class="w-full inline-flex items-center justify-center px-6 py-3 sq border border-line text-sm font-semibold hover:bg-gray-50 transition">
-              Close
-            </button>
-
-            <p id="callbackStatus" class="text-xs text-muted leading-relaxed hidden"></p>
+            <button type="submit" id="callbackSubmit" class="btn btn-primary" style="width:100%;justify-content:center;">Call me back <i data-feather="phone-call" class="icon icon-sm"></i></button>
+            <button type="button" data-close-callback class="btn btn-outline" style="width:100%;justify-content:center;">Close</button>
+            <p id="callbackStatus" class="hidden"></p>
           </form>
         </div>
       </div>
@@ -518,113 +433,64 @@
     feather.replace();
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu
     const menuBtn = document.getElementById("menuBtn");
     const menuDrawer = document.getElementById("menuDrawer");
     const menuBackdrop = document.getElementById("menuBackdrop");
 
-    function setMenuIcon(open){
-      menuBtn.innerHTML = open
-        ? '<i data-feather="x" class="w-5 h-5"></i>'
-        : '<i data-feather="menu" class="w-5 h-5"></i>';
-      feather.replace();
-    }
-    function openMenu(){
-      menuDrawer.classList.add("open");
-      menuBackdrop.classList.add("open");
-      document.body.classList.add("no-scroll");
-      menuBtn.setAttribute("aria-expanded", "true");
-      setMenuIcon(true);
-    }
-    function closeMenu(){
-      menuDrawer.classList.remove("open");
-      menuBackdrop.classList.remove("open");
-      document.body.classList.remove("no-scroll");
-      menuBtn.setAttribute("aria-expanded", "false");
-      setMenuIcon(false);
-    }
-    function isOpen(){ return menuDrawer.classList.contains("open"); }
+    function setMenuIcon(open) { menuBtn.innerHTML = open ? '<i data-feather="x" class="icon"></i>' : '<i data-feather="menu" class="icon"></i>'; feather.replace(); }
+    function openMenu()  { menuDrawer.classList.add("open"); menuBackdrop.classList.add("open"); document.body.classList.add("no-scroll"); menuBtn.setAttribute("aria-expanded","true");  setMenuIcon(true);  }
+    function closeMenu() { menuDrawer.classList.remove("open"); menuBackdrop.classList.remove("open"); document.body.classList.remove("no-scroll"); menuBtn.setAttribute("aria-expanded","false"); setMenuIcon(false); }
+    function isMenuOpen(){ return menuDrawer.classList.contains("open"); }
 
-    menuBtn.addEventListener("click", () => { isOpen() ? closeMenu() : openMenu(); });
+    menuBtn.addEventListener("click", () => { isMenuOpen() ? closeMenu() : openMenu(); });
     menuBackdrop.addEventListener("click", closeMenu);
     document.querySelectorAll("[data-close-menu]").forEach(el => el.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && isOpen()) closeMenu(); });
-    window.addEventListener("resize", () => { if (window.innerWidth >= 768 && isOpen()) closeMenu(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && isMenuOpen()) closeMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth >= 1024 && isMenuOpen()) closeMenu(); });
 
-    // Callback modal
     const modal = document.getElementById("callbackModal");
-    function openCallback() {
-      closeMenu();
-      modal.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-      feather.replace();
-    }
-    function closeCallback() {
-      modal.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
+    function openCallback()  { closeMenu(); modal.classList.remove("hidden"); document.body.classList.add("overflow-hidden"); feather.replace(); }
+    function closeCallback() { modal.classList.add("hidden"); document.body.classList.remove("overflow-hidden"); }
     window.closeCallback = closeCallback;
-
     document.querySelectorAll("[data-open-callback]").forEach(btn => btn.addEventListener("click", openCallback));
     document.querySelectorAll("[data-close-callback]").forEach(btn => btn.addEventListener("click", closeCallback));
-    modal.addEventListener("click", (e) => { if (e.target === modal.firstElementChild) closeCallback(); });
+    modal.addEventListener("click", e => { if (e.target === modal.querySelector(".modal-backdrop")) closeCallback(); });
 
-    // Rent Reviews dropdown (desktop)
     (function () {
       const btn = document.getElementById("rentBtn");
       const menu = document.getElementById("rentMenu");
       if (!btn || !menu) return;
-
       let closeT = null;
-
-      function openDD() {
-        if (closeT) { clearTimeout(closeT); closeT = null; }
-        menu.classList.add("open");
-        btn.setAttribute("aria-expanded", "true");
-      }
-
-      function closeDD() {
-        menu.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-      }
-
-      function scheduleClose() {
-        if (closeT) clearTimeout(closeT);
-        closeT = setTimeout(closeDD, 220);
-      }
-
-      btn.addEventListener("mouseenter", openDD);
-      menu.addEventListener("mouseenter", openDD);
-      btn.addEventListener("mouseleave", scheduleClose);
-      menu.addEventListener("mouseleave", scheduleClose);
-
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const isOpen = menu.classList.contains("open");
-        if (isOpen) closeDD(); else openDD();
-      });
-
-      document.addEventListener("click", (e) => {
-        const within = btn.contains(e.target) || menu.contains(e.target);
-        if (!within) closeDD();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeDD();
-      });
+      function openDD()  { if (closeT) { clearTimeout(closeT); closeT = null; } menu.classList.add("open"); btn.setAttribute("aria-expanded","true"); }
+      function closeDD() { menu.classList.remove("open"); btn.setAttribute("aria-expanded","false"); }
+      function scheduleClose() { if (closeT) clearTimeout(closeT); closeT = setTimeout(closeDD, 220); }
+      btn.addEventListener("mouseenter", openDD); menu.addEventListener("mouseenter", openDD);
+      btn.addEventListener("mouseleave", scheduleClose); menu.addEventListener("mouseleave", scheduleClose);
+      btn.addEventListener("click", e => { e.preventDefault(); menu.classList.contains("open") ? closeDD() : openDD(); });
+      document.addEventListener("click", e => { if (!btn.contains(e.target) && !menu.contains(e.target)) closeDD(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeDD(); });
     })();
 
-    // Fade-in on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); io.unobserve(entry.target); } });
     }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    (function () {
+      const form = document.getElementById("callbackForm");
+      const btn  = document.getElementById("callbackSubmit");
+      const status = document.getElementById("callbackStatus");
+      if (!form) return;
+      form.addEventListener("submit", async e => {
+        e.preventDefault(); status.classList.remove("hidden"); status.textContent = "Sending…"; btn.disabled = true; btn.style.opacity = "0.6";
+        try {
+          const res = await fetch(form.action, { method:"POST", body:new FormData(form), headers:{ Accept:"application/json" } });
+          if (res.ok) { form.reset(); status.textContent = "Thanks — we will call you back shortly."; setTimeout(() => closeCallback(), 900); }
+          else { status.textContent = "Sorry — something went wrong. Please try again."; }
+        } catch { status.textContent = "Sorry — something went wrong. Please try again."; }
+        finally { btn.disabled = false; btn.style.opacity = ""; if (window.feather) feather.replace(); }
+      });
+    })();
   </script>
 </body>
 </html>
