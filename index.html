@@ -1557,20 +1557,21 @@
     .cc-toggle input:checked + .cc-track + .cc-knob { transform: translateX(18px); }
     .cc-toggle input:focus-visible + .cc-track { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-    /* form decline note */
     .recaptcha-consent-note {
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-      line-height: 1.55;
-      color: var(--g600);
+      margin-top: 0.625rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
       display: none;
     }
     .recaptcha-consent-note.show { display: block; }
-    .recaptcha-consent-note button {
-      font-family: var(--sans); font-size: inherit; font-weight: 600;
-      color: var(--ink); text-decoration: underline; text-underline-offset: 3px;
-      cursor: pointer; padding: 0; background: none; border: none;
+    .recaptcha-consent-note .rcn-text { font-size: 0.75rem; line-height: 1.55; color: var(--g600); }
+    .recaptcha-consent-note .rcn-actions { margin-top: 0.75rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .recaptcha-consent-note .rcn-email {
+      font-size: 0.75rem; font-weight: 600; color: var(--ink);
+      text-decoration: underline; text-underline-offset: 3px;
     }
+
     @media (max-width: 480px) {
       .cookie-card { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width: auto; }
     }
@@ -1959,7 +1960,7 @@
             <div class="recaptcha-field">
                 <div class="g-recaptcha" data-sitekey="6LeXqV8tAAAAABNHqGW8wnh63buSomcwjD_GPPou"></div>
                 <p class="recaptcha-error" data-recaptcha-error>Please confirm you are not a robot.</p>
-                <p class="recaptcha-consent-note" data-recaptcha-consent-note>Spam protection is disabled. <button type="button">Enable cookies</button> to send this form, or email us directly.</p>
+                <div class="recaptcha-consent-note" data-recaptcha-consent-note><p class="rcn-text">To send this form we need to enable spam protection, which sets a cookie.</p><div class="rcn-actions"><button type="button" class="btn btn-primary btn-sm" data-consent-accept>Accept &amp; continue</button><a class="rcn-email" href="mailto:rob@t1assetmanagement.co.uk">Email us instead</a></div></div>
               </div>
               <div class="form-actions">
               <button type="submit" id="contactSubmit" class="btn btn-primary">Send enquiry <i data-feather="send" class="icon icon-sm"></i></button>
@@ -2063,7 +2064,7 @@
             <div class="recaptcha-field">
               <div class="g-recaptcha" data-sitekey="6LeXqV8tAAAAABNHqGW8wnh63buSomcwjD_GPPou"></div>
               <p class="recaptcha-error" data-recaptcha-error>Please confirm you are not a robot.</p>
-                <p class="recaptcha-consent-note" data-recaptcha-consent-note>Spam protection is disabled. <button type="button">Enable cookies</button> to send this form, or email us directly.</p>
+                <div class="recaptcha-consent-note" data-recaptcha-consent-note><p class="rcn-text">To send this form we need to enable spam protection, which sets a cookie.</p><div class="rcn-actions"><button type="button" class="btn btn-primary btn-sm" data-consent-accept>Accept &amp; continue</button><a class="rcn-email" href="mailto:rob@t1assetmanagement.co.uk">Email us instead</a></div></div>
             </div>
             <button type="submit" id="callbackSubmit" class="btn btn-primary" style="width:100%;justify-content:center;">Call me back <i data-feather="phone-call" class="icon icon-sm"></i></button>
             <button type="button" data-close-callback class="btn btn-outline" style="width:100%;justify-content:center;">Close</button>
@@ -2301,7 +2302,7 @@
       function showCard() { if (card) card.classList.add("show"); }
       function hideCard() { if (card) { card.classList.remove("show"); card.classList.remove("managing"); } }
       function toMain() { if (card) card.classList.remove("managing"); }
-      function toManage() { if (card) card.classList.add("managing"); if (toggle) toggle.checked = (stored() === "accepted"); }
+      function toManage() { if (card) card.classList.add("managing"); if (toggle) toggle.checked = (stored() !== "declined"); }
       function showNotes() { notes.forEach(function (n) { n.classList.add("show"); }); }
       function hideNotes() { notes.forEach(function (n) { n.classList.remove("show"); }); }
 
@@ -2336,8 +2337,8 @@
       if (saveBtn) saveBtn.addEventListener("click", saveChoices);
 
       notes.forEach(function (n) {
-        var b = n.querySelector("button");
-        if (b) b.addEventListener("click", function () { showCard(); toManage(); });
+        var b = n.querySelector("[data-consent-accept]");
+        if (b) b.addEventListener("click", function () { accept(); });
       });
 
       var state = stored();
