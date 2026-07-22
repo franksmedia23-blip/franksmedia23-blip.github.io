@@ -1449,7 +1449,26 @@
       .reveal { opacity: 1; transform: none; }
       .hero-img { transform: none; }
     }
+  
+    /* ============================================================
+       reCAPTCHA
+    ============================================================ */
+    .recaptcha-field { margin-top: 0.5rem; }
+    .modal-form .recaptcha-field { margin-top: 0.25rem; }
+    /* keep the widget from overflowing narrow modals */
+    .g-recaptcha { display: inline-block; }
+    @media (max-width: 360px) {
+      .g-recaptcha { transform: scale(0.86); transform-origin: 0 0; }
+    }
+    .recaptcha-error {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--g600);
+      display: none;
+    }
+    .recaptcha-error.show { display: block; }
   </style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -1793,7 +1812,11 @@
               <textarea name="message" rows="5" required class="f-in" placeholder="Tell us what you need help with..."></textarea>
             </div>
 
-            <div class="form-actions">
+            <div class="recaptcha-field">
+                <div class="g-recaptcha" data-sitekey="6LeXqV8tAAAAABNHqGW8wnh63buSomcwjD_GPPou"></div>
+                <p class="recaptcha-error" data-recaptcha-error>Please confirm you are not a robot.</p>
+              </div>
+              <div class="form-actions">
               <button type="submit" id="contactSubmit" class="btn btn-primary">Send enquiry <i data-feather="send" class="icon icon-sm"></i></button>
               <button type="button" data-open-callback class="btn btn-outline">Request a call back</button>
             </div>
@@ -1891,6 +1914,10 @@
             <div class="form-field">
               <label>Phone number</label>
               <input type="tel" name="phone" required class="f-in" placeholder="07..." />
+            </div>
+            <div class="recaptcha-field">
+              <div class="g-recaptcha" data-sitekey="6LeXqV8tAAAAABNHqGW8wnh63buSomcwjD_GPPou"></div>
+              <p class="recaptcha-error" data-recaptcha-error>Please confirm you are not a robot.</p>
             </div>
             <button type="submit" id="callbackSubmit" class="btn btn-primary" style="width:100%;justify-content:center;">Call me back <i data-feather="phone-call" class="icon icon-sm"></i></button>
             <button type="button" data-close-callback class="btn btn-outline" style="width:100%;justify-content:center;">Close</button>
@@ -2031,6 +2058,15 @@
       if (!form) return;
       form.addEventListener("submit", async e => {
         e.preventDefault();
+        var _rcEl = form.querySelector('.g-recaptcha');
+        var _rcErr = form.querySelector('[data-recaptcha-error]');
+        var _rcId = _rcEl ? _rcEl.getAttribute('data-widget-id') : null;
+        var _rcToken = (window.grecaptcha && _rcId !== null) ? grecaptcha.getResponse(_rcId) : (window.grecaptcha ? grecaptcha.getResponse() : '');
+        if (_rcEl && !_rcToken) {
+          if (_rcErr) _rcErr.classList.add('show');
+          return;
+        }
+        if (_rcErr) _rcErr.classList.remove('show');
         status.classList.remove("hidden"); status.textContent = "Sending…";
         btn.disabled = true; btn.style.opacity = "0.6";
         try {
@@ -2038,7 +2074,7 @@
           if (res.ok) { form.reset(); status.textContent = "Thanks. We will be in touch shortly."; }
           else { status.textContent = "Sorry, something went wrong. Please try again or email rob@t1assetmanagement.co.uk."; }
         } catch { status.textContent = "Sorry, something went wrong. Please try again or email rob@t1assetmanagement.co.uk."; }
-        finally { btn.disabled = false; btn.style.opacity = ""; if (window.feather) feather.replace(); }
+        finally { try { if (window.grecaptcha) { _rcId !== null ? grecaptcha.reset(_rcId) : grecaptcha.reset(); } } catch(_){} btn.disabled = false; btn.style.opacity = ""; if (window.feather) feather.replace(); }
       });
     })();
 
@@ -2050,6 +2086,15 @@
       if (!form) return;
       form.addEventListener("submit", async e => {
         e.preventDefault();
+        var _rcEl = form.querySelector('.g-recaptcha');
+        var _rcErr = form.querySelector('[data-recaptcha-error]');
+        var _rcId = _rcEl ? _rcEl.getAttribute('data-widget-id') : null;
+        var _rcToken = (window.grecaptcha && _rcId !== null) ? grecaptcha.getResponse(_rcId) : (window.grecaptcha ? grecaptcha.getResponse() : '');
+        if (_rcEl && !_rcToken) {
+          if (_rcErr) _rcErr.classList.add('show');
+          return;
+        }
+        if (_rcErr) _rcErr.classList.remove('show');
         status.classList.remove("hidden"); status.textContent = "Sending…";
         btn.disabled = true; btn.style.opacity = "0.6";
         try {
@@ -2057,8 +2102,24 @@
           if (res.ok) { form.reset(); status.textContent = "Thanks. We will call you back shortly."; setTimeout(() => closeCallback(), 900); }
           else { status.textContent = "Sorry, something went wrong. Please try again."; }
         } catch { status.textContent = "Sorry, something went wrong. Please try again."; }
-        finally { btn.disabled = false; btn.style.opacity = ""; if (window.feather) feather.replace(); }
+        finally { try { if (window.grecaptcha) { _rcId !== null ? grecaptcha.reset(_rcId) : grecaptcha.reset(); } } catch(_){} btn.disabled = false; btn.style.opacity = ""; if (window.feather) feather.replace(); }
       });
+    })();
+
+    // ── reCAPTCHA explicit render (captures per-widget ids) ──────
+    window.___rcRender = function () {
+      document.querySelectorAll('.g-recaptcha').forEach(function (el) {
+        if (el.getAttribute('data-widget-id') !== null) return;
+        try {
+          var id = grecaptcha.render(el, { sitekey: el.getAttribute('data-sitekey') });
+          el.setAttribute('data-widget-id', id);
+        } catch (_) {}
+      });
+    };
+    (function () {
+      var t = setInterval(function () {
+        if (window.grecaptcha && grecaptcha.render) { clearInterval(t); window.___rcRender(); }
+      }, 200);
     })();
   </script>
 
