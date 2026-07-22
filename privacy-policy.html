@@ -1547,11 +1547,156 @@
     @media (max-width: 360px) { .g-recaptcha { transform: scale(0.86); transform-origin: 0 0; } }
     .recaptcha-error { margin-top: 0.5rem; font-size: 0.75rem; color: var(--g600); display: none; }
     .recaptcha-error.show { display: block; }
+  
+
+    /* ============================================================
+       COOKIE CONSENT
+    ============================================================ */
+    .cookie-card {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 90;
+      width: min(380px, calc(100vw - 2.5rem));
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      border-radius: 0;
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 420ms var(--ease), transform 520ms var(--ease);
+    }
+    .cookie-card.show { opacity: 1; transform: none; pointer-events: auto; }
+    .cookie-card .cc-label {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--g500); line-height: 1;
+    }
+    .cookie-card .cc-label::before { content: ""; width: 5px; height: 5px; background: currentColor; }
+    .cookie-card p {
+      margin-top: 0.875rem;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--g600);
+    }
+    .cookie-card p a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+    .cookie-actions { margin-top: 1.25rem; display: flex; gap: 0.625rem; }
+    .cookie-actions .btn,
+    .cookie-actions .cc-ghost { flex: 1; padding: 0.75rem 1rem; font-size: 0.75rem; }
+    .cc-ghost {
+      background: transparent; color: var(--ink);
+      border: 1px solid var(--g300);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--sans); font-weight: 600; letter-spacing: 0.02em;
+      border-radius: 0; cursor: pointer;
+      transition: background 300ms var(--ease), color 300ms var(--ease), border-color 300ms var(--ease);
+    }
+    .cc-ghost:hover { background: var(--paper); border-color: var(--g500); }
+
+    /* views */
+    .cc-view-manage { display: none; }
+    .cookie-card.managing .cc-view-main { display: none; }
+    .cookie-card.managing .cc-view-manage { display: block; }
+
+    /* setting row with toggle */
+    .cc-setting {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line-soft);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .cc-setting:first-of-type { border-top: none; padding-top: 0; }
+    .cc-setting-text { min-width: 0; }
+    .cc-setting-text .cc-setting-name { font-size: 0.8125rem; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+    .cc-setting-text p { margin-top: 0.25rem; font-size: 0.75rem; line-height: 1.5; color: var(--g600); }
+    .cc-setting-locked { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: var(--g400); white-space: nowrap; padding-top: 2px; }
+
+    /* toggle */
+    .cc-toggle { position: relative; flex-shrink: 0; width: 42px; height: 24px; }
+    .cc-toggle input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 2; }
+    .cc-toggle .cc-track {
+      position: absolute; inset: 0;
+      background: var(--g300);
+      border: 1px solid var(--g300);
+      border-radius: 0;
+      transition: background 260ms var(--ease), border-color 260ms var(--ease);
+    }
+    .cc-toggle .cc-knob {
+      position: absolute; top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      background: var(--white);
+      transition: transform 260ms var(--ease);
+    }
+    .cc-toggle input:checked + .cc-track { background: var(--ink); border-color: var(--ink); }
+    .cc-toggle input:checked + .cc-track + .cc-knob { transform: translateX(18px); }
+    .cc-toggle input:focus-visible + .cc-track { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .recaptcha-consent-note {
+      margin-top: 0.625rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      display: none;
+    }
+    .recaptcha-consent-note.show { display: block; }
+    .recaptcha-consent-note .rcn-text { font-size: 0.75rem; line-height: 1.55; color: var(--g600); }
+    .recaptcha-consent-note .rcn-actions { margin-top: 0.75rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .recaptcha-consent-note .rcn-email {
+      font-size: 0.75rem; font-weight: 600; color: var(--ink);
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+
+    @media (max-width: 480px) {
+      .cookie-card { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; width: auto; }
+    }
   </style>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="page-interior">
+
+  <!-- Cookie consent (gates reCAPTCHA) -->
+  <div id="cookieCard" class="cookie-card" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cc-view-main">
+      <span class="cc-label">Cookies</span>
+      <p>We use Google reCAPTCHA to protect our forms from spam, which sets cookies. We only load it if you allow it. See our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+      <div class="cookie-actions">
+        <button type="button" id="cookieManage" class="cc-ghost">Manage</button>
+        <button type="button" id="cookieAccept" class="btn btn-primary">Accept</button>
+      </div>
+    </div>
+    <div class="cc-view-manage">
+      <span class="cc-label">Cookie settings</span>
+      <div class="cc-setting">
+        <div class="cc-setting-text">
+          <div class="cc-setting-name">Essential</div>
+          <p>Required for the website to function. Always on.</p>
+        </div>
+        <span class="cc-setting-locked">Always on</span>
+      </div>
+      <div class="cc-setting">
+        <div class="cc-setting-text">
+          <div class="cc-setting-name">Spam protection (reCAPTCHA)</div>
+          <p>Loads Google reCAPTCHA on our forms. Sets cookies. Enable this to send a form using the spam check.</p>
+        </div>
+        <label class="cc-toggle">
+          <input type="checkbox" id="cookieRecaptchaToggle" aria-label="Enable reCAPTCHA spam protection cookies" />
+          <span class="cc-track"></span>
+          <span class="cc-knob"></span>
+        </label>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookieBack" class="cc-ghost">Back</button>
+        <button type="button" id="cookieSave" class="btn btn-primary">Save choices</button>
+      </div>
+    </div>
+  </div>
+
 
   <header class="site-header">
     <div class="container">
@@ -1798,6 +1943,7 @@
             <div class="recaptcha-field">
               <div class="g-recaptcha" data-sitekey="6LeXqV8tAAAAABNHqGW8wnh63buSomcwjD_GPPou"></div>
               <p class="recaptcha-error" data-recaptcha-error>Please confirm you are not a robot.</p>
+                <div class="recaptcha-consent-note" data-recaptcha-consent-note><p class="rcn-text">To send this form we need to enable spam protection, which sets a cookie.</p><div class="rcn-actions"><button type="button" class="btn btn-primary btn-sm" data-consent-accept>Accept &amp; continue</button><a class="rcn-email" href="mailto:rob@t1assetmanagement.co.uk">Email us instead</a></div></div>
             </div>
             <button type="submit" id="callbackSubmit" class="btn btn-primary" style="width:100%;justify-content:center;">Call me back <i data-feather="phone-call" class="icon icon-sm"></i></button>
             <button type="button" data-close-callback class="btn btn-outline" style="width:100%;justify-content:center;">Close</button>
@@ -1871,7 +2017,7 @@
         var _rcErr = form.querySelector("[data-recaptcha-error]");
         var _rcId = _rcEl ? _rcEl.getAttribute("data-widget-id") : null;
         var _rcToken = (window.grecaptcha && _rcId !== null) ? grecaptcha.getResponse(_rcId) : (window.grecaptcha ? grecaptcha.getResponse() : "");
-        if (_rcEl && !_rcToken) { if (_rcErr) _rcErr.classList.add("show"); return; }
+        if (!(window.___consentAccepted && window.___consentAccepted())) { var _n=form.querySelector("[data-recaptcha-consent-note]"); if(_n)_n.classList.add("show"); if(window.___openConsent)window.___openConsent(); return; } if (_rcEl && !_rcToken) { if (_rcErr) _rcErr.classList.add("show"); return; }
         if (_rcErr) _rcErr.classList.remove("show");
         status.classList.remove("hidden"); status.textContent = "Sending…"; btn.disabled = true; btn.style.opacity = "0.6";
         try {
@@ -1892,5 +2038,71 @@
     };
     (function () { var t = setInterval(function () { if (window.grecaptcha && grecaptcha.render) { clearInterval(t); window.___rcRender(); } }, 200); })();
   </script>
+
+  <script>
+    // ── Cookie consent gate for reCAPTCHA ──────────────────────────
+    (function () {
+      var KEY = "t1_cookie_consent";           // "accepted" | "declined"
+      var card = document.getElementById("cookieCard");
+      var acceptBtn = document.getElementById("cookieAccept");
+      var manageBtn = document.getElementById("cookieManage");
+      var backBtn = document.getElementById("cookieBack");
+      var saveBtn = document.getElementById("cookieSave");
+      var toggle = document.getElementById("cookieRecaptchaToggle");
+      var notes = Array.prototype.slice.call(document.querySelectorAll("[data-recaptcha-consent-note]"));
+      var loaded = false;
+
+      function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+      function showCard() { if (card) card.classList.add("show"); }
+      function hideCard() { if (card) { card.classList.remove("show"); card.classList.remove("managing"); } }
+      function toMain() { if (card) card.classList.remove("managing"); }
+      function toManage() { if (card) card.classList.add("managing"); if (toggle) toggle.checked = (stored() !== "declined"); }
+      function showNotes() { notes.forEach(function (n) { n.classList.add("show"); }); }
+      function hideNotes() { notes.forEach(function (n) { n.classList.remove("show"); }); }
+
+      function loadRecaptcha() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement("script");
+        s.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+        s.async = true; s.defer = true;
+        document.head.appendChild(s);
+        var t = setInterval(function () {
+          if (window.grecaptcha && grecaptcha.render) {
+            clearInterval(t);
+            if (window.___rcRender) window.___rcRender();
+          }
+        }, 200);
+      }
+
+      window.___consentAccepted = function () { return stored() === "accepted"; };
+      window.___openConsent = function () { showCard(); toManage(); };
+
+      function accept() { save("accepted"); hideCard(); hideNotes(); loadRecaptcha(); }
+      function decline() { save("declined"); hideCard(); }
+      function saveChoices() {
+        if (toggle && toggle.checked) { accept(); }
+        else { decline(); }
+      }
+
+      if (acceptBtn) acceptBtn.addEventListener("click", accept);
+      if (manageBtn) manageBtn.addEventListener("click", toManage);
+      if (backBtn) backBtn.addEventListener("click", toMain);
+      if (saveBtn) saveBtn.addEventListener("click", saveChoices);
+
+      notes.forEach(function (n) {
+        var b = n.querySelector("[data-consent-accept]");
+        if (b) b.addEventListener("click", function () { accept(); });
+      });
+
+      var state = stored();
+      if (state === "accepted") { loadRecaptcha(); }
+      else if (state === "declined") { /* off until user re-opens settings */ }
+      else { setTimeout(showCard, 600); }
+    })();
+  </script>
+
 </body>
 </html>
